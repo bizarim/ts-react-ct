@@ -1,15 +1,14 @@
-:root {
-  --main-bg: #1e2841;
-  --back-bg: #171c29;
-  --font-family: "Noto Sans KR", "arial", "sans-serif"; }
+@import "styles/style.scss";
 
 #root {
-  position: relative; }
+  position: relative;
+}
 
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box; }
+  -moz-box-sizing: border-box;
+}
 
 html,
 body {
@@ -22,7 +21,8 @@ body {
   color: #000;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  -ms-text-size-adjust: 100%;
+}
 
 body,
 div,
@@ -55,8 +55,8 @@ footer,
 section,
 article,
 button,
-figure,
-figcaption {
+ figure,
+ figcaption {
   font-size: 10px;
   margin: 0;
   padding: 0;
@@ -64,15 +64,18 @@ figcaption {
   line-height: 1.1;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  -ms-text-size-adjust: 100%;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 fieldset,
 img {
-  border: 0; }
+  border: 0;
+}
 
 address,
 caption,
@@ -84,15 +87,18 @@ strong,
 th,
 var {
   font-style: normal;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 ol,
 ul {
-  list-style: none; }
+  list-style: none;
+}
 
 caption,
 th {
-  text-align: left; }
+  text-align: left;
+}
 
 h1,
 h2,
@@ -101,22 +107,27 @@ h4,
 h5,
 h6 {
   font-size: 100%;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 q:before,
 q:after {
-  content: ""; }
+  content: "";
+}
 
 abbr,
 acronym {
   border: 0;
-  font-variant: normal; }
+  font-variant: normal;
+}
 
 sup {
-  vertical-align: text-top; }
+  vertical-align: text-top;
+}
 
 sub {
-  vertical-align: text-bottom; }
+  vertical-align: text-bottom;
+}
 
 input {
   appearance: none;
@@ -125,7 +136,10 @@ input {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  outline: none; }
+  outline: none;
+
+
+}
 
 input,
 textarea,
@@ -133,13 +147,15 @@ select {
   font-family: inherit;
   font-size: inherit;
   outline: none;
-  font-weight: inherit; }
+  font-weight: inherit;
+}
 
 input,
 textarea,
 select {
   font-size: 100%;
-  outline: none; }
+  outline: none;
+}
 
 input[type="text"],
 input[type="tel"],
@@ -151,7 +167,8 @@ select {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  outline: none; }
+  outline: none;
+}
 
 legend,
 caption {
@@ -159,7 +176,8 @@ caption {
   height: 0;
   width: 0;
   opacity: 0;
-  filter: alpha(opacity=0); }
+  filter: alpha(opacity=0);
+}
 
 label,
 button,
@@ -174,17 +192,22 @@ input[type="reset"] {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  outline: none; }
+  outline: none;
+}
 
 button {
   border: none;
-  outline: none; }
+  outline: none;
+}
 
 a {
   white-space: pre;
   text-decoration: none;
   outline: none;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 i {
-  font-style: normal; }
+  font-style: normal;
+}
+
