@@ -1,5 +1,8 @@
-import { ServiceType } from '../../constants';
+import { ServiceType } from './enums';
 
+/**
+ * 설정 파일
+ */
 export interface Config {
     apis: { [key: string]: string };
     withCredentials: boolean;

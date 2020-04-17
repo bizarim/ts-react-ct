@@ -1,7 +1,21 @@
 import { makeRequest } from './builder';
-import { ApiWrapper, RequestOptions, JsonBody } from './types';
+import { RequestOptions, JsonBody, RequestMethod } from './types';
 
-export const Api: ApiWrapper = {
+/**
+ * Api Wrapper 인터페이스
+ */
+export interface ApiWrapper {
+    get: RequestMethod;
+    post: RequestMethod;
+    patch: RequestMethod;
+    put: RequestMethod;
+    delete: RequestMethod;
+}
+
+/**
+ * ApiWrapper 구현 객체
+ */
+export const API: ApiWrapper = {
     get: (config: RequestOptions) => async (url: string, body: JsonBody | FormData | undefined) =>
         makeRequest({
             method: 'get',
