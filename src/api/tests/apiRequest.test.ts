@@ -2,7 +2,7 @@ import { AxiosError, AxiosRequestConfig } from 'axios';
 import { eErrorCode } from '../../constants';
 import { ApiResponse, defaultResponse, formatError } from '..';
 
-describe('Api Request', () => {
+describe('Api Request Unit Test', () => {
 
     it('should return correct defaultResponse', () => {
         const expectedObject = {

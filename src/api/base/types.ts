@@ -54,16 +54,16 @@ export interface IPayload {
  * Response 구현 객체
  */
 export class ApiResponse implements IResponse {
-    public error: string;
+    public code: string;
     public msg: string;
     public payload: IPayload | undefined;
 
     constructor(rt: eErrorCode = eErrorCode.Success) {
         if (typeof rt === 'number') {
-            this.error = `${rt}`;
+            this.code = `${rt}`;
             this.msg = eErrorCode[rt];
         } else {
-            this.error = `${eErrorCode.Undefined}`;
+            this.code = `${eErrorCode.Undefined}`;
             this.msg = eErrorCode[eErrorCode.Undefined];
         }
     }

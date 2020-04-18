@@ -7,7 +7,7 @@ interface State {
 
 }
 
-export default class Test extends Component<Props, State> {
+export default class Checkbox extends Component<Props, State> {
     public state = {};
 
     public render() {

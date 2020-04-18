@@ -33,7 +33,10 @@
     "typescript": "~3.7.2"
   },
   "devDependencies": {
-    "mockserver": "^2.2.0"
+    "@types/redux-mock-store": "^1.0.2",
+    "axios-mock-adapter": "^1.18.1",
+    "mockserver": "^2.2.0",
+    "redux-mock-store": "^1.5.4"
   },
   "scripts": {
     "build:css": "node-sass src/index.scss src/index.css",
@@ -42,7 +45,7 @@
     "start": "npm-run-all -p watch:css lint mockAPI start-js",
     "start-js": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
     "lint": "tsc --noEmit && tslint --project . ",
     "lint:fix": "tslint --project . --fix"
   },
