@@ -1,5 +1,4 @@
 import { RootState } from '../rootReducer';
-import { ProductState } from './reducer';
+import {  FormState } from './reducer';
 
-export const selectProductList = (state: RootState): ProductState['list'] => state.product.list;
-export const selectProductDetail = (state: RootState): ProductState['detail'] => state.product.detail;
+export const selectInputForm = (state: RootState): FormState['inputForm'] => state.form.inputForm;

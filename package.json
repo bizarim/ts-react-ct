@@ -13,7 +13,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.7",
-    "@types/react-router-dom": "^5.1.3",
+    "@types/react-router-dom": "^5.1.4",
     "@types/react-router-redux": "^5.0.18",
     "@types/redux-logger": "^3.0.7",
     "axios": "^0.19.2",
@@ -30,7 +30,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3",
     "tslint": "^6.1.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.8.3"
   },
   "devDependencies": {
     "@types/redux-mock-store": "^1.0.2",
@@ -48,6 +48,9 @@
     "test": "react-scripts test --watchAll",
     "lint": "tsc --noEmit && tslint --project . ",
     "lint:fix": "tslint --project . --fix"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [

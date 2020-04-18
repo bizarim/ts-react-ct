@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 interface Props {
 
@@ -7,7 +7,7 @@ interface State {
 
 }
 
-export default class TextInput extends Component<Props, State> {
+export class TextInput extends React.Component<Props, State> {
     public state = {};
 
     public render() {
