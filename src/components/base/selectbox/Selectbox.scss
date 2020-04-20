@@ -1,0 +1,68 @@
+.form-group {
+    border: none;
+    text-align: left;
+    padding: 0;
+
+    .base-selectbox {
+        display: block;
+        margin-bottom: 0.5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .select-wrapper {
+            min-width: 100px;
+            width: 100%;
+            position: relative;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            text-align: left;
+
+            .form-control {
+                height: 34px;
+
+                border: none;
+                box-shadow: none;
+                background-color: transparent;
+
+                option {
+                    color: #000;
+                    &:disabled {
+                        color: #e1e1e1;
+                    }
+                }
+            }
+
+            .fa {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .arrow {
+                position: absolute;
+                top: 50%;
+                right: 8px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                color: #b5b5b5;
+                pointer-events: none;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+
+.no-value {
+    .select-wrapper {
+        select {
+            color: #ccc;
+        }
+    }
+}

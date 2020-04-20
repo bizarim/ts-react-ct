@@ -1,6 +1,6 @@
 .checkbox-label {
     margin: 0;
-    cursor: pointer;
+
 
     label {
         display: table;
@@ -57,6 +57,7 @@
     }
 
     .checkbox-body {
+        cursor: pointer;
         position: relative;
         display: table-cell;
         vertical-align: middle;

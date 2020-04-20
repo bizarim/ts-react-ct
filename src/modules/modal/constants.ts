@@ -11,3 +11,4 @@ export const FORM_MODAL_CHECKBOX_CHECKED = 'FORM_MODAL_CHECKBOX_CHECKED'; // 클
 export const FORM_MODAL_RADIO_CHECKED = 'FORM_MODAL_RADIO_CHECKED'; // 클릭처리
 // select
 // text input
+export const FORM_MODAL_TEXT_INPUT = 'FORM_MODAL_TEXT_INPUT'; // 클릭처리

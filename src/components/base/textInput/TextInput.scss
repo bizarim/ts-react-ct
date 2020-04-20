@@ -1,0 +1,13 @@
+.form-control {
+    text-align: left;
+    height: 48px;
+    border: 1px solid #e7e7e7;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 4px;
+    box-shadow: none;
+
+    &:focus {
+        outline: 0;
+    }
+}
