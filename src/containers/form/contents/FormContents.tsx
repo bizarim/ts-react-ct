@@ -8,8 +8,9 @@ import { FormInputGetListPayload, OutputFormItem } from '../../../modules/types'
 import { eFormType } from '../../../constants';
 import { ModalSubmit } from '../../../components/modal/submit/ModalSubmit';
 import { RootState } from '../../../modules/rootReducer';
-import { formModalCheckboxChecked, FormModalAnswerPayload, FormModalAction } from '../../../modules/modal/actions';
+import { formModalCheckboxChecked, FormModalAnswerPayload, FormModalAction, formModalRadioChecked } from '../../../modules/modal/actions';
 import { getProgressStep, selectCurStep, selectMaxStep, IsSubmitStep, getAnswer } from '../../../modules/modal/selector';
+import { ModalRadio } from '../../../components/modal/radio/ModalRadio';
 
 interface FormProps {
     formDatas: FormInputGetListPayload;
@@ -23,6 +24,7 @@ interface ReduxProps {
 }
 interface DispatchProps {
     onCheckboxChecked: typeof formModalCheckboxChecked;
+    onRadoChecked: typeof formModalRadioChecked;
 }
 type Props = DispatchProps & FormProps & ReduxProps;
 
@@ -47,14 +49,14 @@ class Contents extends React.Component<Props> {
 
     private renderContentsBody(curStep: number, formDatas: FormInputGetListPayload) {
         if (formDatas.items.length <= 0) return null;
-        const { onCheckboxChecked, answer } = this.props;
+        const { onCheckboxChecked, onRadoChecked, answer } = this.props;
         const formType = formDatas.items[curStep].formType;
         const formData = formDatas.items[curStep];
 
         return (
             <div className="contents-body" >
                 {formType === eFormType.Checkbox && <ModalCheckbox formData={formData} answer={answer} formType={formType} onChecked={onCheckboxChecked} />}
-                {formType === eFormType.Radio && <ModalCheckbox formData={formData} answer={answer} formType={formType} onChecked={onCheckboxChecked} />}
+                {formType === eFormType.Radio && <ModalRadio formData={formData} answer={answer} formType={formType} onChecked={onRadoChecked} />}
                 {formType === eFormType.Selectbox && <ModalCheckbox formData={formData} answer={answer} formType={formType} onChecked={onCheckboxChecked} />}
                 {formType === eFormType.TextInput && <ModalCheckbox formData={formData} answer={answer} formType={formType} onChecked={onCheckboxChecked} />}
             </div >
@@ -72,6 +74,7 @@ const mapStateProps = (state: RootState) => ({
 
 const mapDispatchProps = (dispatch: Dispatch<FormModalAction>) => ({
     onCheckboxChecked: (payload: FormModalAnswerPayload) => dispatch(formModalCheckboxChecked(payload)),
+    onRadoChecked: (payload: FormModalAnswerPayload) => dispatch(formModalRadioChecked(payload)),
 });
 
 export const FormContents = connect(mapStateProps, mapDispatchProps)(Contents);

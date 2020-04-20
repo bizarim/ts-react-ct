@@ -9,6 +9,12 @@ export const selectAnswers = (state: RootState): FormModalState['answers'] => st
 export const selectCurStep = (state: RootState): FormModalState['curStep'] => state.formModal.curStep;
 export const selectMaxStep = (state: RootState): number => state.formInput.data.items.length;
 
+export const IsFirstStep = (state: RootState): boolean => {
+    const cur = selectCurStep(state);
+    if (cur <= 0) return true;
+    return false;
+};
+
 export const IsSubmitStep = (state: RootState): boolean => {
     const cur = selectCurStep(state);
     const max = selectMaxStep(state);

@@ -1,5 +1,5 @@
 import { FormModalAction } from './actions';
-import { FORM_MODAL_CHECKBOX_CHECKED, FORM_MODAL_SUBMIT_PROGRESSED, FORM_MODAL_SUBMIT_COMPLETED, FORM_MODAL_INITIALIZE, FORM_MODAL_SUBMIT_ERROR } from './constants';
+import { FORM_MODAL_CHECKBOX_CHECKED, FORM_MODAL_SUBMIT_PROGRESSED, FORM_MODAL_SUBMIT_COMPLETED, FORM_MODAL_INITIALIZE, FORM_MODAL_SUBMIT_ERROR, FORM_MODAL_RADIO_CHECKED } from './constants';
 import { OutputFormItem } from '../form/types';
 import { eFormType, eProgress } from '../../constants';
 
@@ -24,18 +24,32 @@ export const initialState: FormModalState = {
 export const formModalReducer = (state = initialState, action: FormModalAction): FormModalState => {
 
     switch (action.type) {
-        case FORM_MODAL_CHECKBOX_CHECKED:
+        case FORM_MODAL_CHECKBOX_CHECKED: {
             const { formType, checked, output } = action.payload;
             if (undefined === state.answers.get(formType)) {
                 state.answers.set(formType, new Map<number, OutputFormItem>());
             }
-            const list = state.answers.get(formType) as Map<number, OutputFormItem>;
-            checked ? list.set(output.id, output) : list.delete(output.id);
+            const checkboxAnswers = state.answers.get(formType) as Map<number, OutputFormItem>;
+            checked ? checkboxAnswers.set(output.id, output) : checkboxAnswers.delete(output.id);
+            return {
+                ...state,
+                error: checkboxAnswers.size !== 0 ? undefined : { never: false, formType: formType },
+            };
+        }
+        case FORM_MODAL_RADIO_CHECKED: {
+            const { formType, checked, output } = action.payload;
+            if (undefined === state.answers.get(formType)) {
+                state.answers.set(formType, new Map<number, OutputFormItem>());
+            }
+            const radioAnswers = state.answers.get(formType) as Map<number, OutputFormItem>;
+            radioAnswers.clear();
+            if (checked) radioAnswers.set(output.id, output);
 
             return {
                 ...state,
-                error: list.size !== 0 ? undefined : { never: false, formType: formType },
+                error: radioAnswers.size !== 0 ? undefined : { never: false, formType: formType },
             };
+        }
         case FORM_MODAL_SUBMIT_PROGRESSED:
             const { progress } = action.payload;
             let curStep = state.curStep;

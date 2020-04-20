@@ -8,5 +8,6 @@ export const FORM_MODAL_SUBMIT_ERROR = 'FORM_MODAL_SUBMIT_ERROR'; // 에러
 export const FORM_MODAL_CHECKBOX_CHECKED = 'FORM_MODAL_CHECKBOX_CHECKED'; // 클릭처리
 
 // ratio
+export const FORM_MODAL_RADIO_CHECKED = 'FORM_MODAL_RADIO_CHECKED'; // 클릭처리
 // select
 // text input

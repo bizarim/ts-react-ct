@@ -4,6 +4,7 @@ import {
     FORM_MODAL_SUBMIT_COMPLETED,
     FORM_MODAL_INITIALIZE,
     FORM_MODAL_SUBMIT_ERROR,
+    FORM_MODAL_RADIO_CHECKED,
 } from './constants';
 import { eFormType, eProgress } from '../../constants';
 import { OutputFormItem } from '../form/types';
@@ -42,12 +43,19 @@ export interface FormModalSubmitError {
         text?: string,
     };
 }
+
+
+export interface FormModalRadioChecked {
+    type: typeof FORM_MODAL_RADIO_CHECKED;
+    payload: FormModalAnswerPayload;
+}
 export type FormModalAction
     = FormModalCheckboxChecked
     | FormModalSubmitProgressed
     | FormModalSubmitCompleted
     | FormModalInitailize
-    | FormModalSubmitError;
+    | FormModalSubmitError
+    | FormModalRadioChecked;
 
 export const formModalCheckboxChecked = (payload: FormModalCheckboxChecked['payload']): FormModalCheckboxChecked => ({
     type: FORM_MODAL_CHECKBOX_CHECKED,
@@ -70,5 +78,11 @@ export const formModalInitailize = (): FormModalInitailize => ({
 
 export const formModalSubmitError = (payload: FormModalSubmitError['payload']): FormModalSubmitError => ({
     type: FORM_MODAL_SUBMIT_ERROR,
+    payload,
+});
+
+
+export const formModalRadioChecked = (payload: FormModalRadioChecked['payload']): FormModalRadioChecked => ({
+    type: FORM_MODAL_RADIO_CHECKED,
     payload,
 });
