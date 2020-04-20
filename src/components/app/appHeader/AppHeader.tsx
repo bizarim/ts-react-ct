@@ -7,13 +7,13 @@ interface State {
 
 }
 
-export class RequestForm extends React.Component<Props, State> {
+export class AppHeader extends React.Component<Props, State> {
     public state = {};
 
     public render() {
         return (
-            <div>
-
+            <div className="app-header">
+                AppHeader
             </div>
         );
     }

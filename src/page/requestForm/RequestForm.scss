@@ -1,0 +1,161 @@
+.send-request {
+    padding-bottom: 3.125rem;
+
+    section {
+        padding: 2.5rem 0;
+    }
+
+    .form-title {
+        background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/service-bg/service_530286b2-8cb0-4665-912b-20e4aad70286.png");
+
+        position: relative;
+        background-size: cover;
+        background-position: 50%;
+        padding: 3.75rem 0 6rem;
+        margin-bottom: 0;
+
+        .title-wrapper {
+            position: relative;
+            width: 970px;
+            margin: 0 auto;
+            z-index: 2;
+
+            h1 {
+                font-size: 2.5rem;
+                line-height: 3.75rem;
+                letter-spacing: -0.04375rem;
+                color: #fff;
+                margin: 0;
+                font-weight: 500;
+            }
+        }
+
+        .dimmed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+    }
+
+    .form-contents {
+        width: 970px;
+        margin: 0 auto -2.5rem;
+
+        div[data-name="request-form-wrap"] {
+            min-height: 300px;
+            -webkit-transform: translateY(-6.25rem);
+            transform: translateY(-6.25rem);
+            padding-right: 2.5rem;
+            z-index: 2;
+        }
+
+        .request-form {
+            position: relative;
+            background-color: #fff;
+            padding: 40px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+
+
+
+            .contents-body {
+                padding-bottom: 40px;
+            }
+
+            .contents-footer {
+                overflow: hidden;
+
+                small.form-error-msg {
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    margin-bottom: 10px;
+                    font-size: 14px;
+
+                    i {
+                        color: #ff3131;
+                    }
+
+                    .fa {
+                        display: inline-block;
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-size: inherit;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                    }
+
+                    .notice {
+                        &:before {
+                            content: "\22C7";
+                        }
+                    }
+
+
+                }
+
+                .btn-wrapper {
+                    width: 100%;
+                    text-align: right;
+
+                    .btn {
+                        cursor: pointer;
+                        outline: 0;
+                        padding-left: 2.5rem;
+                        padding-right: 2.5rem;
+                        -webkit-transition: opacity 0.2s ease-in-out;
+                        transition: opacity 0.2s ease-in-out;
+                    }
+
+                    .neg-btn-primary {
+                        background-color: #fff;
+                        color: #00c7ae;
+                        &:hover {
+                            background: darken(#fff, 2%); // 색상 10% 밝게
+                        }
+
+                        &:active {
+                            background: darken(#fff, 10%); // 색상 10% 밝게
+                        }
+                    }
+
+                    .btn-primary {
+                        background-color: #00c7ae;
+                        color: #fff;
+
+                        &:hover {
+                            background: lighten(#00c7ae, 2%); // 색상 10% 밝게
+                        }
+
+                        &:active {
+                            background: darken(#00c7ae, 2%); // 색상 10% 밝게
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col-lg-8 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 66.66667%;
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}

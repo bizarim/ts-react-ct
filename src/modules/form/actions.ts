@@ -6,8 +6,7 @@ import {
     FORM_INPUT_GET_LIST_REQ,
     FORM_INPUT_GET_LIST_RES,
 } from './constants';
-import { CommonErrorPayload } from '../types';
-import { FormInputGetListPayload, FormOutputSummitPayload } from './types';
+import { FormInputGetListPayload, FormOutputSummitPayload, CommonErrorPayload } from './types';
 
 export interface FormOutputSummitErr {
     type: typeof FORM_OUTPUT_SUMMIT_ERR;

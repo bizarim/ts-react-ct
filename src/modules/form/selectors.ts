@@ -1,4 +1,4 @@
 import { RootState } from '../rootReducer';
-import {  FormState } from './reducer';
+import {  FormInputState } from './reducer';
 
-export const selectInputForm = (state: RootState): FormState['inputForm'] => state.form.inputForm;
+export const selectInputForm = (state: RootState): FormInputState['data'] => state.formInput.data;

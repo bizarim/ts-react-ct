@@ -88,15 +88,14 @@
                     "public-static-field",
                     "public-instance-field",
                     "public-constructor",
-                    "private-instance-method",
+                    "public-instance-method",
                     "protected-instance-method",
-                    "public-instance-method"
+                    "private-instance-method"
                 ]
             }
         ],
         "no-internal-module": true,
         "no-trailing-whitespace": true,
-        "no-null-keyword": true,
         "prefer-const": true,
         "jsdoc-format": true
     }

@@ -1,4 +1,4 @@
-import { CommonErrorPayload, InputForm } from '../types';
+import { CommonErrorPayload, InputForm } from './types';
 import { FormAction } from './actions';
 import {
     FORM_OUTPUT_SUMMIT_ERR,
@@ -9,16 +9,20 @@ import {
     FORM_INPUT_GET_LIST_RES,
 } from './constants';
 
-export interface FormState {
-    inputForm: InputForm | undefined;
+export interface FormInputState {
+    data: InputForm;
     error?: CommonErrorPayload;
 }
 
-export const initialProductState: FormState = {
-    inputForm: undefined,
+export const initialState: FormInputState = {
+    data: {
+        formId: 0,
+        title: '',
+        items: [],
+    },
 };
 
-export const productReducer = (state = initialProductState, action: FormAction): FormState => {
+export const formInputReducer = (state = initialState, action: FormAction): FormInputState => {
 
     switch (action.type) {
         case FORM_OUTPUT_SUMMIT_ERR:
@@ -49,7 +53,7 @@ export const productReducer = (state = initialProductState, action: FormAction):
             return {
                 ...state,
                 error: undefined,
-                inputForm: action.payload,
+                data: action.payload,
             };
         default:
             return state;

@@ -19,3 +19,17 @@ export enum eErrorCode {
     UnknownError = 520,
     ApiError = 600,
 }
+
+export enum eFormType {
+    None = 0,
+    Checkbox = 1,
+    Radio = 2,
+    TextInput = 3,
+    Selectbox = 4,
+}
+
+export enum eProgress {
+    previous,
+    next,
+    submit,
+}

@@ -1,14 +1,22 @@
 import { combineReducers } from 'redux';
-import { productReducer, FormState } from './form/reducer';
+import { FormInputState, formInputReducer } from './form';
+import { FormModalState, formModalReducer } from './modal/reducer';
+
 
 // [ Redux 만들기 ] step 4: reducer 등록
 // reducer 등록
 
 export interface RootState {
-    form: FormState;
+    formInput: FormInputState;
+    formModal: FormModalState;
+}
+
+export interface FormState {
+
 }
 
 export const rootReducer = combineReducers({
-    form: productReducer,
+    formInput: formInputReducer,
+    formModal: formModalReducer,
 });
 
