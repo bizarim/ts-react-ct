@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface TextInputProps {
     id: number;
     text: string;
     placeHolder: string;
@@ -10,7 +10,7 @@ interface State {
     value: string;
 }
 
-export class TextInput extends React.Component<Props, State> {
+export class TextInput extends React.Component<TextInputProps, State> {
     public state = {
         value: this.props.text,
     };

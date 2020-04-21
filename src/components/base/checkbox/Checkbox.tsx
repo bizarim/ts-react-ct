@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface CheckboxProps {
     id: number;
     text: string;
     init: boolean;
@@ -10,7 +10,7 @@ interface State {
     checked: boolean;
 }
 
-export class Checkbox extends React.Component<Props, State> {
+export class Checkbox extends React.Component<CheckboxProps, State> {
     public state = {
         checked: this.props.init,
     };

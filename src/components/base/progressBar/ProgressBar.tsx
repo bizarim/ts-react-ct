@@ -1,13 +1,13 @@
 import React from 'react';
 
-interface Props {
+export interface ProgressProps {
     value: number;
 }
 interface State {
 
 }
 
-export class ProgressBar extends React.Component<Props, State> {
+export class ProgressBar extends React.Component<ProgressProps, State> {
     public render() {
         const { value } = this.props;
         const style = {

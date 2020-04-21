@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputFormItemOption, OutputFormItem } from '../../../modules/types';
 
-interface Props {
+export interface SelectboxProps {
     answer: Map<number, OutputFormItem> | undefined;
     options: InputFormItemOption[];
     onHandle(id: number, checked: boolean, text: string): void;
@@ -13,7 +13,7 @@ interface State {
 // todo 언어설정
 const disabledMsg = '선택해주세요';
 
-export class Selectbox extends React.Component<Props, State> {
+export class Selectbox extends React.Component<SelectboxProps, State> {
     public state = {
         value: '',
     };

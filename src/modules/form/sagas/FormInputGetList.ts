@@ -1,7 +1,6 @@
-// import { call, put } from 'redux-saga/effects';
-// import { API } from '../../../api';
-// import { ServiceType } from '../../../constants';
-import { put } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
+import { API } from '../../../api';
+import { ServiceType } from '../../../constants';
 import { FormInputGetListReq, formInputGetListRes, formInputGetListErr } from '../actions';
 import data from '../../../assets/input.json';
 import { formModalInitailize } from '../../modal';
@@ -9,8 +8,8 @@ import { formModalInitailize } from '../../modal';
 export function* getFormInputGetListSaga(action: FormInputGetListReq) {
 
     try {
+        const rs = yield call(API.get({ service: ServiceType.form }), `/input`);
         // todo
-        // const rs = yield call(API.get({ service: ServiceType.form }), `/input`);
         // yield put(formInputGetListRes(rs));
         yield put(formInputGetListRes(data));
         yield(formModalInitailize({ formId: data.formId}));

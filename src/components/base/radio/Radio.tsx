@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface RadioProps {
     id: number;
     text: string;
     init: boolean;
@@ -10,7 +10,7 @@ interface State {
 
 }
 
-export class Radio extends React.Component<Props, State> {
+export class Radio extends React.Component<RadioProps, State> {
     public state = {
 
     };
