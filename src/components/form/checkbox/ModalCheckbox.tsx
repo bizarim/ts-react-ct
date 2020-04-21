@@ -1,11 +1,9 @@
 import React from 'react';
 import { Checkbox } from '../..';
-import { eFormType } from '../../../constants';
 import { InputFormItem, OutputFormItem } from '../../../modules/types';
 import { FormModalAnswerPayload } from '../../../modules/modal';
 
 interface Props {
-    formType: eFormType;
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
     onChecked(payload: FormModalAnswerPayload): any;
@@ -38,9 +36,7 @@ export class ModalCheckbox extends React.Component<Props, State> {
         );
     }
     private onHandle = (id: number, checked: boolean, text: string) => {
-        const { formType, onChecked } = this.props;
-        onChecked({ formType: formType, checked: checked, output: { id: id, answer: text } });
-        // tslint:disable-next-line:no-console
-        console.log('test' + id + checked);
+        const { formData, onChecked } = this.props;
+        onChecked({ itemId: formData.itemId, checked: checked, output: { id: id, answer: text } });
     }
 }

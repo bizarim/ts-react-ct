@@ -43,8 +43,6 @@ export class Selectbox extends React.Component<Props, State> {
         const { onHandle } = this.props;
         const id = event.target.id;
         const text = event.target.value;
-        // tslint:disable-next-line:no-console
-        console.log('test' + text);
         this.setState({ value: text });
         if (onHandle)
             onHandle(parseInt(id), false, text);

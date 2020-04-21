@@ -8,12 +8,12 @@ import {
     FORM_MODAL_TEXT_INPUT,
     FORM_MODAL_SELECTBOX_SELECTED,
 } from './constants';
-import { eFormType, eProgress } from '../../constants';
+import { eProgress } from '../../constants';
 import { OutputFormItem } from '../form/types';
-import { FormModalError } from './types';
+import { FormModalError, ItemId } from './types';
 
 export interface FormModalAnswerPayload {
-    formType: eFormType;
+    itemId: ItemId;
     checked: boolean;
     output: OutputFormItem;
 }

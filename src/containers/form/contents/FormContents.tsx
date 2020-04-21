@@ -53,10 +53,14 @@ class Contents extends React.Component<Props> {
 
         return (
             <div className="contents-body" >
-                {formType === eFormType.Checkbox && <ModalCheckbox formData={formData} answer={answer} formType={formType} onChecked={onCheckboxChecked} />}
-                {formType === eFormType.Radio && <ModalRadio formData={formData} answer={answer} formType={formType} onChecked={onRadoChecked} />}
-                {formType === eFormType.Selectbox && <ModalSelectbox formData={formData} answer={answer} formType={formType} onSelectboxSelected={onSelectboxSelected} />}
-                {formType === eFormType.TextInput && <ModalTextInput formData={formData} answer={answer} formType={formType} onTextInput={onTextInput} />}
+                {formType === eFormType.Checkbox
+                    && <ModalCheckbox formData={formData} answer={answer} onChecked={onCheckboxChecked} />}
+                {formType === eFormType.Radio
+                    && <ModalRadio formData={formData} answer={answer} onChecked={onRadoChecked} />}
+                {formType === eFormType.Selectbox
+                    && <ModalSelectbox formData={formData} answer={answer} onSelectboxSelected={onSelectboxSelected} />}
+                {formType === eFormType.TextInput
+                    && <ModalTextInput formData={formData} answer={answer} onTextInput={onTextInput} />}
             </div >
         );
     }

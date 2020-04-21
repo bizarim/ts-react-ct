@@ -1,11 +1,9 @@
 import React from 'react';
 import { InputFormItem, OutputFormItem } from '../../../modules/types';
 import { FormModalAnswerPayload } from '../../../modules/modal/actions';
-import { eFormType } from '../../../constants';
 import { Radio } from '../../base/radio/Radio';
 
 interface Props {
-    formType: eFormType;
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
     onChecked(payload: FormModalAnswerPayload): any;
@@ -41,13 +39,11 @@ export class ModalRadio extends React.Component<Props, State> {
         );
     }
     private onHandle = (id: number, checked: boolean, text: string) => {
-        const { formType, onChecked } = this.props;
+        const { formData, onChecked } = this.props;
         const { selectedId } = this.state;
         if (`${id}` !== selectedId) {
-            onChecked({ formType: formType, checked: checked, output: { id: id, answer: text } });
+            onChecked({ itemId: formData.itemId, checked: checked, output: { id: id, answer: text } });
             this.setState({ selectedId: `${id}` });
         }
-        // tslint:disable-next-line:no-console
-        console.log('test' + id + checked);
     }
 }

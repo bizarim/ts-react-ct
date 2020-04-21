@@ -2,8 +2,8 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { eProgress, eFormType } from '../../../constants';
-import { FormModalError } from '../../../modules/modal/types';
-import { formModalSubmitProgressed, IsSubmitStep, getCurFormType, selectModalError, IsFirstStep, FormModalAction, formModalSubmitError } from '../../../modules/modal';
+import { FormModalError, ItemId, FormId } from '../../../modules/modal/types';
+import { formModalSubmitProgressed, IsSubmitStep, getCurFormType, selectModalError, IsFirstStep, FormModalAction, formModalSubmitError, getFormItemId, getFormId } from '../../../modules/modal';
 import { RootState } from '../../../modules/rootReducer';
 import { FormAction } from '../../../modules/form';
 
@@ -12,6 +12,8 @@ interface ReduxProps {
     isSubmit: boolean;
     formType: eFormType;
     error?: FormModalError;
+    itemId: ItemId;
+    formId: FormId;
 }
 interface DispatchPros {
     onProgressed: typeof formModalSubmitProgressed;
@@ -46,9 +48,9 @@ class Footer extends React.Component<Props> {
     }
 
     private onNextClicked = () => {
-        const { onProgressed, error, onError, formType } = this.props;
+        const { onProgressed, error, onError, itemId } = this.props;
         if (!error) {
-            onError({ isError: true, formType: formType });
+            onError({ isError: true, itemId: itemId });
             return;
         } else {
             if (!error.isError) {
@@ -67,6 +69,8 @@ const mapStateProps = (state: RootState) => ({
     formType: getCurFormType(state),
     error: selectModalError(state),
     isFirst: IsFirstStep(state),
+    itemId: getFormItemId(state),
+    formId: getFormId(state),
 });
 
 const mapDispatchProps = (dispatch: Dispatch<FormModalAction | FormAction>) => ({

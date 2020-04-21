@@ -1,11 +1,9 @@
 import React from 'react';
 import { Selectbox } from '../../base/selectbox/Selectbox';
-import { eFormType } from '../../../constants';
 import { InputFormItem, OutputFormItem } from '../../../modules/types';
 import { FormModalAnswerPayload } from '../../../modules/modal/actions';
 
 interface Props {
-    formType: eFormType;
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
     onSelectboxSelected(payload: FormModalAnswerPayload): any;
@@ -32,9 +30,7 @@ export class ModalSelectbox extends React.Component<Props, State> {
     }
 
     private onHandle = (id: number, checked: boolean, text: string) => {
-        const { formType, onSelectboxSelected } = this.props;
-        onSelectboxSelected({ formType: formType, checked: checked, output: { id: id, answer: text } });
-        // tslint:disable-next-line:no-console
-        console.log('test' + id + checked);
+        const { formData, onSelectboxSelected } = this.props;
+        onSelectboxSelected({ itemId: formData.itemId, checked: checked, output: { id: id, answer: text } });
     }
 }

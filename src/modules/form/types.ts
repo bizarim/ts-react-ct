@@ -1,4 +1,5 @@
 import { IPayload } from '../../api';
+import { eFormType } from '../../constants';
 
 export interface CommonErrorPayload {
     code: string;
@@ -14,7 +15,7 @@ export interface InputForm {
 export interface InputFormItem {
     itemId: number;
     title: string;
-    formType: number;
+    formType: eFormType;
     options: InputFormItemOption[];
 }
 

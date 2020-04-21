@@ -3,7 +3,7 @@ import { FormModalState } from './reducer';
 import { eFormType } from '../../constants';
 import { selectInputForm } from '../form';
 import { OutputFormItem } from '../types';
-import { FormModalError } from './types';
+import { FormModalError, ItemId, FormId } from './types';
 
 export const selectAnswers = (state: RootState): FormModalState['answers'] => state.formModal.answers;
 export const selectCurStep = (state: RootState): FormModalState['curStep'] => state.formModal.curStep;
@@ -36,6 +36,19 @@ export const getCurFormType = (state: RootState): eFormType => {
     if (data.items.length <= 0) return eFormType.None;
     if (data.items.length <= cur) return eFormType.None;
     return data.items[cur].formType;
+};
+
+export const getFormItemId = (state: RootState): ItemId => {
+    const data = selectInputForm(state);
+    const cur = selectCurStep(state);
+    if (data.items.length <= 0) return 0;
+    if (data.items.length <= cur) return 0;
+    return data.items[cur].itemId;
+};
+
+export const getFormId = (state: RootState): FormId => {
+    const data = selectInputForm(state);
+    return data.formId;
 };
 
 export const selectModalError = (state: RootState): FormModalError | undefined => {

@@ -1,13 +1,12 @@
 import React from 'react';
 import { TextInput } from '../..';
-import { eFormType } from '../../../constants';
 import { InputFormItem, OutputFormItem } from '../../../modules/types';
 import { FormModalAnswerPayload } from '../../../modules/modal/actions';
+import { ItemId } from '../../../modules/modal/types';
 
 interface Props {
-    formType: eFormType;
     formData: InputFormItem;
-    answer: Map<number, OutputFormItem> | undefined;
+    answer: Map<ItemId, OutputFormItem> | undefined;
     onTextInput(payload: FormModalAnswerPayload): any;
 }
 interface State {
@@ -18,7 +17,7 @@ export class ModalTextInput extends React.Component<Props, State> {
     public state = {};
     public render() {
         const { formData, answer } = this.props;
-        const list = answer ? answer : new Map<number, OutputFormItem>();
+        const list = answer ? answer : new Map<ItemId, OutputFormItem>();
         const id = 0;
         const text = list.get(id)?.answer;
         return (
@@ -36,9 +35,7 @@ export class ModalTextInput extends React.Component<Props, State> {
     }
 
     private onHandle = (id: number, checked: boolean, text: string) => {
-        const { formType, onTextInput } = this.props;
-        onTextInput({ formType: formType, checked: checked, output: { id: id, answer: text } });
-        // tslint:disable-next-line:no-console
-        console.log('test:' + text);
+        const { formData, onTextInput } = this.props;
+        onTextInput({ itemId: formData.itemId, checked: checked, output: { id: id, answer: text } });
     }
 }

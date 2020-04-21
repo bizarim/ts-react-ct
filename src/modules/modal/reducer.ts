@@ -1,47 +1,49 @@
 import { FormModalAction } from './actions';
 import { FORM_MODAL_CHECKBOX_CHECKED, FORM_MODAL_SUBMIT_PROGRESSED, FORM_MODAL_SUBMIT_COMPLETED, FORM_MODAL_INITIALIZE, FORM_MODAL_SUBMIT_ERROR, FORM_MODAL_RADIO_CHECKED, FORM_MODAL_TEXT_INPUT, FORM_MODAL_SELECTBOX_SELECTED } from './constants';
 import { OutputFormItem } from '../form/types';
-import { eFormType, eProgress } from '../../constants';
-import { FormModalError } from './types';
+import { eProgress } from '../../constants';
+import { FormModalError, OptionId, ItemId, FormId } from './types';
 
 export interface FormModalState {
+    formId: FormId;
     curStep: number;
-    errors: Map<number, FormModalError>;
-    answers: Map<eFormType, Map<number, OutputFormItem>>;
+    errors: Map<ItemId, FormModalError>;
+    answers: Map<ItemId, Map<OptionId, OutputFormItem>>;
 }
 
 export const initialState: FormModalState = {
+    formId: 0,
     curStep: 0,
-    answers: new Map<eFormType, Map<number, OutputFormItem>>(),
-    errors: new Map<number, FormModalError>(),
+    answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(),
+    errors: new Map<ItemId, FormModalError>(),
 };
 
-const setError = (state: FormModalState, formType: eFormType, isError: boolean) => {
+const setError = (state: FormModalState, itemId: ItemId, isError: boolean) => {
     const error = state.errors.get(state.curStep);
     if (!error) state.errors.delete(state.curStep);
-    state.errors.set(state.curStep, { isError: isError, formType: formType });
+    state.errors.set(state.curStep, { isError: isError, itemId: itemId });
 };
 
 export const formModalReducer = (state = initialState, action: FormModalAction): FormModalState => {
 
     switch (action.type) {
         case FORM_MODAL_CHECKBOX_CHECKED: {
-            const { formType, checked, output } = action.payload;
-            if (undefined === state.answers.get(formType)) {
-                state.answers.set(formType, new Map<number, OutputFormItem>());
+            const { itemId, checked, output } = action.payload;
+            if (undefined === state.answers.get(itemId)) {
+                state.answers.set(itemId, new Map<OptionId, OutputFormItem>());
             }
-            const checkboxAnswers = state.answers.get(formType) as Map<number, OutputFormItem>;
+            const checkboxAnswers = state.answers.get(itemId) as Map<OptionId, OutputFormItem>;
             checked ? checkboxAnswers.set(output.id, output) : checkboxAnswers.delete(output.id);
-            setError(state, formType, checkboxAnswers.size <= 0);
+            setError(state, itemId, checkboxAnswers.size <= 0);
             return { ...state };
         }
         case FORM_MODAL_RADIO_CHECKED: {
-            const { formType, checked, output } = action.payload;
-            if (undefined === state.answers.get(formType)) {
-                state.answers.set(formType, new Map<number, OutputFormItem>());
+            const { itemId, checked, output } = action.payload;
+            if (undefined === state.answers.get(itemId)) {
+                state.answers.set(itemId, new Map<OptionId, OutputFormItem>());
             }
-            setError(state, formType, false);
-            const radioAnswers = state.answers.get(formType) as Map<number, OutputFormItem>;
+            setError(state, itemId, false);
+            const radioAnswers = state.answers.get(itemId) as Map<OptionId, OutputFormItem>;
             radioAnswers.clear();
             if (checked) radioAnswers.set(output.id, output);
 
@@ -50,12 +52,12 @@ export const formModalReducer = (state = initialState, action: FormModalAction):
             };
         }
         case FORM_MODAL_SELECTBOX_SELECTED: {
-            const { formType, output } = action.payload;
-            if (undefined === state.answers.get(formType)) {
-                state.answers.set(formType, new Map<number, OutputFormItem>());
+            const { itemId, output } = action.payload;
+            if (undefined === state.answers.get(itemId)) {
+                state.answers.set(itemId, new Map<OptionId, OutputFormItem>());
             }
-            setError(state, formType, false);
-            const selectAnswers = state.answers.get(formType) as Map<number, OutputFormItem>;
+            setError(state, itemId, false);
+            const selectAnswers = state.answers.get(itemId) as Map<OptionId, OutputFormItem>;
             selectAnswers.clear();
             selectAnswers.set(output.id, output);
             return {
@@ -63,14 +65,14 @@ export const formModalReducer = (state = initialState, action: FormModalAction):
             };
         }
         case FORM_MODAL_TEXT_INPUT: {
-            const { formType, output } = action.payload;
-            if (undefined === state.answers.get(formType)) {
-                state.answers.set(formType, new Map<number, OutputFormItem>());
+            const { itemId, output } = action.payload;
+            if (undefined === state.answers.get(itemId)) {
+                state.answers.set(itemId, new Map<OptionId, OutputFormItem>());
             }
-            const radioAnswers = state.answers.get(formType) as Map<number, OutputFormItem>;
+            const radioAnswers = state.answers.get(itemId) as Map<OptionId, OutputFormItem>;
             radioAnswers.clear();
             radioAnswers.set(output.id, output);
-            setError(state, formType, radioAnswers.size <= 0);
+            setError(state, itemId, radioAnswers.size <= 0);
             return { ...state };
         }
         case FORM_MODAL_SUBMIT_PROGRESSED:
@@ -82,10 +84,10 @@ export const formModalReducer = (state = initialState, action: FormModalAction):
                 curStep: curStep < 0 ? 0 : curStep,
             };
         case FORM_MODAL_INITIALIZE:
-            state = { curStep: 0, answers: new Map<eFormType, Map<number, OutputFormItem>>(), errors: new Map<number, FormModalError>() };
+            state = { formId: 0, curStep: 0, answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(), errors: new Map<number, FormModalError>() };
             return { ...state };
         case FORM_MODAL_SUBMIT_ERROR: {
-            setError(state, action.payload.formType, action.payload.isError);
+            setError(state, action.payload.itemId, action.payload.isError);
             return { ...state };
         }
         case FORM_MODAL_SUBMIT_COMPLETED:
