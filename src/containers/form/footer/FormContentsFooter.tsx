@@ -15,6 +15,7 @@ interface ReduxProps {
 }
 interface DispatchPros {
     onProgressed: typeof formModalSubmitProgressed;
+    onError: typeof formModalSubmitError;
 }
 type Props = ReduxProps & DispatchPros;
 
@@ -25,7 +26,7 @@ class Footer extends React.Component<Props> {
         return (
             <div className="contents-footer">
                 <small className="form-error-msg">
-                    {error && !error.never && <i className="fa notice">빈 칸을 채워주세요.</i>}
+                    {error ? error.isError ? <i className="fa notice">빈 칸을 채워주세요.</i> : null : null}
                 </small>
                 <div className="btn-wrapper">
                     {isFirst
@@ -45,9 +46,15 @@ class Footer extends React.Component<Props> {
     }
 
     private onNextClicked = () => {
-        const { onProgressed, error } = this.props;
-        if (error) return;
-        onProgressed({ progress: eProgress.next });
+        const { onProgressed, error, onError, formType } = this.props;
+        if (!error) {
+            onError({ isError: true, formType: formType });
+            return;
+        } else {
+            if (!error.isError) {
+                onProgressed({ progress: eProgress.next });
+            }
+        }
     }
 
     private onSubmit = () => {

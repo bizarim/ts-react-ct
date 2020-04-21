@@ -2,7 +2,6 @@ import { eFormType } from '../../constants';
 
 
 export interface FormModalError {
-    never: boolean;
+    isError: boolean;
     formType: eFormType;
-    text?: string;
 }

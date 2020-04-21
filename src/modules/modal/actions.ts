@@ -6,9 +6,11 @@ import {
     FORM_MODAL_SUBMIT_ERROR,
     FORM_MODAL_RADIO_CHECKED,
     FORM_MODAL_TEXT_INPUT,
+    FORM_MODAL_SELECTBOX_SELECTED,
 } from './constants';
 import { eFormType, eProgress } from '../../constants';
 import { OutputFormItem } from '../form/types';
+import { FormModalError } from './types';
 
 export interface FormModalAnswerPayload {
     formType: eFormType;
@@ -38,11 +40,7 @@ export interface FormModalInitailize {
 }
 export interface FormModalSubmitError {
     type: typeof FORM_MODAL_SUBMIT_ERROR;
-    payload: {
-        never: boolean,
-        formType: eFormType,
-        text?: string,
-    };
+    payload: FormModalError;
 }
 
 
@@ -51,9 +49,13 @@ export interface FormModalRadioChecked {
     payload: FormModalAnswerPayload;
 }
 
-
 export interface FormModalTextInput {
     type: typeof FORM_MODAL_TEXT_INPUT;
+    payload: FormModalAnswerPayload;
+}
+
+export interface FormModalSelectboxSelected {
+    type: typeof FORM_MODAL_SELECTBOX_SELECTED;
     payload: FormModalAnswerPayload;
 }
 export type FormModalAction
@@ -64,7 +66,7 @@ export type FormModalAction
     | FormModalSubmitError
     | FormModalRadioChecked
     | FormModalTextInput
-    ;
+    | FormModalSelectboxSelected;
 
 export const formModalCheckboxChecked = (payload: FormModalCheckboxChecked['payload']): FormModalCheckboxChecked => ({
     type: FORM_MODAL_CHECKBOX_CHECKED,
@@ -98,5 +100,10 @@ export const formModalRadioChecked = (payload: FormModalRadioChecked['payload'])
 
 export const formModalTextInput = (payload: FormModalTextInput['payload']): FormModalTextInput => ({
     type: FORM_MODAL_TEXT_INPUT,
+    payload,
+});
+
+export const formModalSelectboxSelected = (payload: FormModalSelectboxSelected['payload']): FormModalSelectboxSelected => ({
+    type: FORM_MODAL_SELECTBOX_SELECTED,
     payload,
 });

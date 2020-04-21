@@ -8,7 +8,7 @@ interface Props {
     formType: eFormType;
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
-    onChanged(payload: FormModalAnswerPayload): any;
+    onTextInput(payload: FormModalAnswerPayload): any;
 }
 interface State {
 
@@ -36,8 +36,8 @@ export class ModalTextInput extends React.Component<Props, State> {
     }
 
     private onHandle = (id: number, checked: boolean, text: string) => {
-        const { formType, onChanged } = this.props;
-        onChanged({ formType: formType, checked: checked, output: { id: id, answer: text } });
+        const { formType, onTextInput } = this.props;
+        onTextInput({ formType: formType, checked: checked, output: { id: id, answer: text } });
         // tslint:disable-next-line:no-console
         console.log('test:' + text);
     }

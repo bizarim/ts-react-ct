@@ -5,7 +5,6 @@ import { selectInputForm } from '../form';
 import { OutputFormItem } from '../types';
 import { FormModalError } from './types';
 
-export const selectModalError = (state: RootState): FormModalError | undefined => state.formModal.error;
 export const selectAnswers = (state: RootState): FormModalState['answers'] => state.formModal.answers;
 export const selectCurStep = (state: RootState): FormModalState['curStep'] => state.formModal.curStep;
 export const selectMaxStep = (state: RootState): number => state.formInput.data.items.length;
@@ -37,6 +36,11 @@ export const getCurFormType = (state: RootState): eFormType => {
     if (data.items.length <= 0) return eFormType.None;
     if (data.items.length <= cur) return eFormType.None;
     return data.items[cur].formType;
+};
+
+export const selectModalError = (state: RootState): FormModalError | undefined => {
+    const cur = selectCurStep(state);
+    return state.formModal.errors.get(cur);
 };
 
 export const getAnswer = (state: RootState): Map<number, OutputFormItem> | undefined => state.formModal.answers.get(getCurFormType(state));

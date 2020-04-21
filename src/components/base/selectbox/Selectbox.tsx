@@ -1,7 +1,8 @@
 import React from 'react';
-import { InputFormItemOption } from '../../../modules/types';
+import { InputFormItemOption, OutputFormItem } from '../../../modules/types';
 
 interface Props {
+    answer: Map<number, OutputFormItem> | undefined;
     options: InputFormItemOption[];
     onHandle(id: number, checked: boolean, text: string): void;
 }
@@ -15,8 +16,10 @@ export class Selectbox extends React.Component<Props, State> {
     };
 
     public render() {
-        const { options } = this.props;
-        const { value } = this.state;
+        const { options, answer } = this.props;
+        let value = '';
+        answer?.forEach(item => { value = item.answer; });
+
         return (
             <div className={`base-selectbox ${value === '' ? 'no-value' : ''}`}>
                 <div className="select-wrapper">
@@ -37,12 +40,13 @@ export class Selectbox extends React.Component<Props, State> {
     }
 
     private handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        // const { id, onHandle, text } = this.props;
-        const v = event.target.value;
+        const { onHandle } = this.props;
+        const id = event.target.id;
+        const text = event.target.value;
         // tslint:disable-next-line:no-console
-        console.log('test' + v);
-        this.setState({ value: v });
-        // if (onHandle)
-        //     onHandle(id, false, text);
+        console.log('test' + text);
+        this.setState({ value: text });
+        if (onHandle)
+            onHandle(parseInt(id), false, text);
     }
 }

@@ -8,7 +8,7 @@ interface Props {
     formType: eFormType;
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
-    onChecked(payload: FormModalAnswerPayload): any;
+    onSelectboxSelected(payload: FormModalAnswerPayload): any;
 }
 interface State {
 
@@ -18,13 +18,13 @@ export class ModalSelectbox extends React.Component<Props, State> {
     public state = {};
 
     public render() {
-        const { formData } = this.props;
+        const { formData, answer } = this.props;
         return (
             <div className="modal-form-list" >
                 <div className="request-formset">
                     <h3 >{formData.title}</h3>
                     <div className="form-group">
-                        <Selectbox options={formData.options} onHandle={this.onHandle}/>
+                        <Selectbox options={formData.options} answer={answer} onHandle={this.onHandle}/>
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@ export class ModalSelectbox extends React.Component<Props, State> {
     }
 
     private onHandle = (id: number, checked: boolean, text: string) => {
-        // const { formType, onChecked } = this.props;
-        // onChecked({ formType: formType, checked: checked, output: { id: id, answer: text } });
+        const { formType, onSelectboxSelected } = this.props;
+        onSelectboxSelected({ formType: formType, checked: checked, output: { id: id, answer: text } });
         // tslint:disable-next-line:no-console
         console.log('test' + id + checked);
     }

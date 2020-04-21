@@ -1,0 +1,10 @@
+
+[todo list]
+1. 텍스트인풋 검사
+2. 셀렉트박스 검사
+3. 제출 페이지
+4. 제출 연동
+5. css global var 정의
+6. components unit text
+7. 반응형
+8. 언어
