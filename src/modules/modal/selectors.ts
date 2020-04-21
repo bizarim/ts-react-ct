@@ -1,8 +1,9 @@
 import { RootState } from '../rootReducer';
-import { FormModalState, FormModalError } from './reducer';
+import { FormModalState } from './reducer';
 import { eFormType } from '../../constants';
 import { selectInputForm } from '../form';
 import { OutputFormItem } from '../types';
+import { FormModalError } from './types';
 
 export const selectModalError = (state: RootState): FormModalError | undefined => state.formModal.error;
 export const selectAnswers = (state: RootState): FormModalState['answers'] => state.formModal.answers;

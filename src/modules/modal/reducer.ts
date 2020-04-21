@@ -2,12 +2,7 @@ import { FormModalAction } from './actions';
 import { FORM_MODAL_CHECKBOX_CHECKED, FORM_MODAL_SUBMIT_PROGRESSED, FORM_MODAL_SUBMIT_COMPLETED, FORM_MODAL_INITIALIZE, FORM_MODAL_SUBMIT_ERROR, FORM_MODAL_RADIO_CHECKED, FORM_MODAL_TEXT_INPUT } from './constants';
 import { OutputFormItem } from '../form/types';
 import { eFormType, eProgress } from '../../constants';
-
-export interface FormModalError {
-    never: boolean;
-    formType: eFormType;
-    text?: string;
-}
+import { FormModalError } from './types';
 
 export interface FormModalState {
     curStep: number;

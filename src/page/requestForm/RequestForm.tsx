@@ -3,9 +3,9 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { InputForm } from '../../modules/types';
-import { FormTitle } from '../../components/form/title/FormTitle';
-import { FormContents } from '../../containers/form/contents/FormContents';
-import { formInputGetListReq, FormAction, selectInputForm } from '../../modules/form';
+import { formInputGetListReq, selectInputForm, FormAction } from '../../modules/form';
+import { FormTitle } from '../../components';
+import { FormContents } from '../../containers';
 import { RootState } from '../../modules/rootReducer';
 
 interface ReduxProps {

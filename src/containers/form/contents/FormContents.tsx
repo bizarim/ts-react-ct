@@ -1,18 +1,12 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { FormContentsFooter } from '../footer/FormContentsFooter';
-import { ProgressBar } from '../../../components/base/progressBar/ProgressBar';
-import { ModalCheckbox } from '../../../components/modal/checkbox/ModalCheckbox';
-import { FormInputGetListPayload, OutputFormItem } from '../../../modules/types';
 import { eFormType } from '../../../constants';
-import { ModalSubmit } from '../../../components/modal/submit/ModalSubmit';
 import { RootState } from '../../../modules/rootReducer';
-import { formModalCheckboxChecked, FormModalAnswerPayload, FormModalAction, formModalRadioChecked, formModalTextInput } from '../../../modules/modal/actions';
-import { getProgressStep, selectCurStep, selectMaxStep, IsSubmitStep, getAnswer } from '../../../modules/modal/selector';
-import { ModalRadio } from '../../../components/modal/radio/ModalRadio';
-import { ModalTextInput } from '../../../components/modal/textInput/ModalTextInput';
-import { ModalSelectbox } from '../../../components/modal/selectbox/ModalSelectbox';
+import { FormInputGetListPayload, OutputFormItem } from '../../../modules/types';
+import { ModalSubmit, ModalCheckbox, ModalRadio, ModalSelectbox, ModalTextInput, ProgressBar } from '../../../components';
+import { formModalCheckboxChecked, formModalRadioChecked, formModalTextInput, getProgressStep, selectCurStep, selectMaxStep, IsSubmitStep, getAnswer, FormModalAction, FormModalAnswerPayload } from '../../../modules/modal';
+import { FormContentsFooter } from '../../';
 
 interface FormProps {
     formDatas: FormInputGetListPayload;

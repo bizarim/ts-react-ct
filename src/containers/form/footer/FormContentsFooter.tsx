@@ -1,11 +1,10 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { FormModalAction, formModalSubmitProgressed, formModalSubmitError } from '../../../modules/modal/actions';
 import { eProgress, eFormType } from '../../../constants';
+import { FormModalError } from '../../../modules/modal/types';
+import { formModalSubmitProgressed, IsSubmitStep, getCurFormType, selectModalError, IsFirstStep, FormModalAction, formModalSubmitError } from '../../../modules/modal';
 import { RootState } from '../../../modules/rootReducer';
-import { IsSubmitStep, getCurFormType, selectModalError, IsFirstStep } from '../../../modules/modal/selector';
-import { FormModalError } from '../../../modules/modal/reducer';
 import { FormAction } from '../../../modules/form';
 
 interface ReduxProps {

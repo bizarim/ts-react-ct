@@ -1,8 +1,8 @@
 import React from 'react';
 import { Checkbox } from '../..';
-import { InputFormItem, OutputFormItem } from '../../../modules/types';
-import { FormModalAnswerPayload } from '../../../modules/modal/actions';
 import { eFormType } from '../../../constants';
+import { InputFormItem, OutputFormItem } from '../../../modules/types';
+import { FormModalAnswerPayload } from '../../../modules/modal';
 
 interface Props {
     formType: eFormType;
