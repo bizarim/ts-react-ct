@@ -13,6 +13,9 @@ interface State {
 
 }
 
+// todo 언어설정
+const placeHolder = '입력해주세요';
+
 export class ModalTextInput extends React.Component<Props, State> {
     public state = {};
     public render() {
@@ -25,7 +28,7 @@ export class ModalTextInput extends React.Component<Props, State> {
                 <div className="request-formset">
                     <h3 >{formData.title}</h3>
                     <TextInput
-                        placeHolder={'입력해주세요.'}
+                        placeHolder={placeHolder}
                         id={id}
                         text={text ? text : ''}
                         onHandle={this.onHandle} />

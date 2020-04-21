@@ -10,7 +10,7 @@ import {
 } from './constants';
 import { eProgress } from '../../constants';
 import { OutputFormItem } from '../form/types';
-import { FormModalError, ItemId } from './types';
+import { FormModalError, ItemId, FormId } from './types';
 
 export interface FormModalAnswerPayload {
     itemId: ItemId;
@@ -37,6 +37,9 @@ export interface FormModalSubmitCompleted {
 }
 export interface FormModalInitailize {
     type: typeof FORM_MODAL_INITIALIZE;
+    payload: {
+        formId: FormId;
+    };
 }
 export interface FormModalSubmitError {
     type: typeof FORM_MODAL_SUBMIT_ERROR;
@@ -83,8 +86,9 @@ export const formModalSubmitCompleted = (payload: FormModalSubmitCompleted['payl
     payload,
 });
 
-export const formModalInitailize = (): FormModalInitailize => ({
+export const formModalInitailize = (payload: FormModalInitailize['payload']): FormModalInitailize => ({
     type: FORM_MODAL_INITIALIZE,
+    payload,
 });
 
 export const formModalSubmitError = (payload: FormModalSubmitError['payload']): FormModalSubmitError => ({

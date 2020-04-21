@@ -29,14 +29,14 @@ type Props = DispatchProps & FormProps & ReduxProps;
 class Contents extends React.Component<Props> {
 
     public render() {
-        const { formDatas, isSubmit, curStep, progressStep } = this.props;
+        const { formDatas, isSubmit, curStep, progressStep, answer } = this.props;
         return (
             <section className="form-contents">
                 <div data-name="request-form-wrap" className="col-lg-8">
                     <div className="request-form container-fluid">
                         <ProgressBar value={progressStep} />
                         {isSubmit
-                            ? <ModalSubmit />
+                            ? <ModalSubmit answer={answer} />
                             : this.renderContentsBody(curStep, formDatas)}
                         <FormContentsFooter />
                     </div>

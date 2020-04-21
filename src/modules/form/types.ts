@@ -1,5 +1,6 @@
 import { IPayload } from '../../api';
 import { eFormType } from '../../constants';
+import { FormId, ItemId, OptionId } from '../modal/types';
 
 export interface CommonErrorPayload {
     code: string;
@@ -7,13 +8,13 @@ export interface CommonErrorPayload {
 }
 
 export interface InputForm {
-    formId: number;
+    formId: FormId;
     title: string;
     items: InputFormItem[];
 }
 
 export interface InputFormItem {
-    itemId: number;
+    itemId: ItemId;
     title: string;
     formType: eFormType;
     options: InputFormItemOption[];
@@ -25,17 +26,22 @@ export interface InputFormItemOption {
 }
 
 export interface FormInputGetListPayload extends IPayload {
-    formId: number;
+    formId: FormId;
     title: string;
     items: InputFormItem[];
 }
 
 export interface OutputFormItem {
-    id: number;
+    id: ItemId;
     answer: string;
 }
 
-export interface FormOutputSummitPayload extends IPayload {
-    id: number;
+export interface FormOutputSummit {
+    id: FormId;
     items: OutputFormItem[];
+}
+
+export interface FormOutputSummitPayload extends IPayload {
+    formId: FormId;
+    ansers: Map<ItemId, Map<OptionId, OutputFormItem>>;
 }

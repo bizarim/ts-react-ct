@@ -10,6 +10,9 @@ interface State {
     value: string;
 }
 
+// todo 언어설정
+const disabledMsg = '선택해주세요';
+
 export class Selectbox extends React.Component<Props, State> {
     public state = {
         value: '',
@@ -24,7 +27,7 @@ export class Selectbox extends React.Component<Props, State> {
             <div className={`base-selectbox ${value === '' ? 'no-value' : ''}`}>
                 <div className="select-wrapper">
                     <select className="form-control" value={value} onChange={this.handleChange}>
-                        <option value="" disabled={true} >{'선택해주세요.'}</option>
+                        <option value="" disabled={true} >{disabledMsg}</option>
                         {options.map((option, index) => {
                             return (
                                 <option key={index} id={`$option.id`} value={option.text}>{option.text}</option>

@@ -71,7 +71,7 @@ export const formModalReducer = (state = initialState, action: FormModalAction):
             }
             const radioAnswers = state.answers.get(itemId) as Map<OptionId, OutputFormItem>;
             radioAnswers.clear();
-            radioAnswers.set(output.id, output);
+            if (output.answer.length > 0) radioAnswers.set(output.id, output);
             setError(state, itemId, radioAnswers.size <= 0);
             return { ...state };
         }
@@ -84,7 +84,7 @@ export const formModalReducer = (state = initialState, action: FormModalAction):
                 curStep: curStep < 0 ? 0 : curStep,
             };
         case FORM_MODAL_INITIALIZE:
-            state = { formId: 0, curStep: 0, answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(), errors: new Map<number, FormModalError>() };
+            state = { formId: action.payload.formId, curStep: 0, answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(), errors: new Map<number, FormModalError>() };
             return { ...state };
         case FORM_MODAL_SUBMIT_ERROR: {
             setError(state, action.payload.itemId, action.payload.isError);
