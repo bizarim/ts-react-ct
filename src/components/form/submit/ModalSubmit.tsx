@@ -15,7 +15,7 @@ export class ModalSubmit extends React.Component<Props, State> {
 
     public render() {
         return (
-            <div> {submitMsg}</div>
+            <h3> {submitMsg}</h3>
         );
     }
 }

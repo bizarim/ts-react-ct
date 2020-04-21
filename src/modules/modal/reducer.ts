@@ -5,6 +5,7 @@ import { eProgress } from '../../constants';
 import { FormModalError, OptionId, ItemId, FormId } from './types';
 
 export interface FormModalState {
+    isCompleted: boolean;
     formId: FormId;
     curStep: number;
     errors: Map<ItemId, FormModalError>;
@@ -12,6 +13,7 @@ export interface FormModalState {
 }
 
 export const initialState: FormModalState = {
+    isCompleted: false,
     formId: 0,
     curStep: 0,
     answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(),
@@ -24,6 +26,7 @@ const setError = (state: FormModalState, itemId: ItemId, isError: boolean) => {
     state.errors.set(state.curStep, { isError: isError, itemId: itemId });
 };
 
+// todo 로직코드 개선
 export const formModalReducer = (state = initialState, action: FormModalAction): FormModalState => {
 
     switch (action.type) {
@@ -84,13 +87,20 @@ export const formModalReducer = (state = initialState, action: FormModalAction):
                 curStep: curStep < 0 ? 0 : curStep,
             };
         case FORM_MODAL_INITIALIZE:
-            state = { formId: action.payload.formId, curStep: 0, answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(), errors: new Map<number, FormModalError>() };
+            state = {
+                isCompleted: false,
+                formId: action.payload.formId,
+                curStep: 0,
+                answers: new Map<ItemId, Map<OptionId, OutputFormItem>>(),
+                errors: new Map<number, FormModalError>(),
+            };
             return { ...state };
         case FORM_MODAL_SUBMIT_ERROR: {
             setError(state, action.payload.itemId, action.payload.isError);
             return { ...state };
         }
         case FORM_MODAL_SUBMIT_COMPLETED:
+            state.isCompleted = true;
             return { ...state };
         default:
             return state;

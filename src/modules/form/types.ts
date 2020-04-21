@@ -36,12 +36,7 @@ export interface OutputFormItem {
     answer: string;
 }
 
-export interface FormOutputSummit {
+export interface FormOutputSummitPayload extends IPayload {
     id: FormId;
     items: OutputFormItem[];
-}
-
-export interface FormOutputSummitPayload extends IPayload {
-    formId: FormId;
-    ansers: Map<ItemId, Map<OptionId, OutputFormItem>>;
 }

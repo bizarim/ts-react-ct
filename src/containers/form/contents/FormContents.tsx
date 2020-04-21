@@ -5,7 +5,7 @@ import { eFormType } from '../../../constants';
 import { RootState } from '../../../modules/rootReducer';
 import { FormInputGetListPayload, OutputFormItem } from '../../../modules/types';
 import { ModalSubmit, ModalCheckbox, ModalRadio, ModalSelectbox, ModalTextInput, ProgressBar } from '../../../components';
-import { formModalCheckboxChecked, formModalRadioChecked, formModalTextInput, getProgressStep, selectCurStep, selectMaxStep, IsSubmitStep, getAnswer, FormModalAction, FormModalAnswerPayload, formModalSelectboxSelected } from '../../../modules/modal';
+import { formModalCheckboxChecked, formModalRadioChecked, formModalTextInput, getProgressStep, selectCurStep, selectMaxStep, isSubmitStep, getAnswer, FormModalAction, FormModalAnswerPayload, formModalSelectboxSelected } from '../../../modules/modal';
 import { FormContentsFooter } from '../../';
 
 interface FormProps {
@@ -70,7 +70,7 @@ const mapStateProps = (state: RootState) => ({
     progressStep: getProgressStep(state),
     curStep: selectCurStep(state),
     maxStep: selectMaxStep(state),
-    isSubmit: IsSubmitStep(state),
+    isSubmit: isSubmitStep(state),
     answer: getAnswer(state),
 });
 

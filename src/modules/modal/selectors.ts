@@ -2,20 +2,20 @@ import { RootState } from '../rootReducer';
 import { FormModalState } from './reducer';
 import { eFormType } from '../../constants';
 import { selectInputForm } from '../form';
-import { OutputFormItem } from '../types';
+import { OutputFormItem, FormOutputSummitPayload } from '../types';
 import { FormModalError, ItemId, FormId, OptionId } from './types';
 
 export const selectAnswers = (state: RootState): FormModalState['answers'] => state.formModal.answers;
 export const selectCurStep = (state: RootState): FormModalState['curStep'] => state.formModal.curStep;
 export const selectMaxStep = (state: RootState): number => state.formInput.data.items.length;
-
-export const IsFirstStep = (state: RootState): boolean => {
+export const isCompleted = (state: RootState): boolean => state.formModal.isCompleted;
+export const isFirstStep = (state: RootState): boolean => {
     const cur = selectCurStep(state);
     if (cur <= 0) return true;
     return false;
 };
 
-export const IsSubmitStep = (state: RootState): boolean => {
+export const isSubmitStep = (state: RootState): boolean => {
     const cur = selectCurStep(state);
     const max = selectMaxStep(state);
     if (max <= cur) return true;
@@ -58,3 +58,24 @@ export const selectModalError = (state: RootState): FormModalError | undefined =
 
 export const getAnswer = (state: RootState): Map<OptionId, OutputFormItem> | undefined => state.formModal.answers.get(getCurFormType(state));
 export const getAnswers = (state: RootState): Map<ItemId, Map<OptionId, OutputFormItem>> => state.formModal.answers;
+
+
+export const makeAnswerToApi = (state: RootState): FormOutputSummitPayload => {
+
+    const formId = getFormId(state);
+    const ansers = getAnswers(state);
+
+    const result: FormOutputSummitPayload = {
+        id: formId,
+        items: [],
+    };
+
+    for (const [itemId, node] of ansers) {
+        result.items.push({
+            id: itemId,
+            answer: [...node.values()].map((value) => value.answer).join(','),
+        });
+    }
+
+    return result;
+};

@@ -2,11 +2,11 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { eProgress, eFormType } from '../../../constants';
-import { FormModalError, ItemId, FormId, OptionId } from '../../../modules/modal/types';
-import { formModalSubmitProgressed, IsSubmitStep, getCurFormType, selectModalError, IsFirstStep, FormModalAction, formModalSubmitError, getFormItemId, getFormId, getAnswers } from '../../../modules/modal';
+import { FormModalError, ItemId } from '../../../modules/modal/types';
+import { formModalSubmitProgressed, isSubmitStep, getCurFormType, selectModalError, isFirstStep, FormModalAction, formModalSubmitError, getFormItemId, getFormId, makeAnswerToApi } from '../../../modules/modal';
 import { RootState } from '../../../modules/rootReducer';
 import { FormAction, formOutputSummitReq } from '../../../modules/form';
-import { FormOutputSummitPayload, OutputFormItem } from '../../../modules/types';
+import { FormOutputSummitPayload } from '../../../modules/types';
 
 interface ReduxProps {
     isFirst: boolean;
@@ -14,8 +14,7 @@ interface ReduxProps {
     formType: eFormType;
     error?: FormModalError;
     itemId: ItemId;
-    formId: FormId;
-    answers: Map<ItemId, Map<OptionId, OutputFormItem>>;
+    ouput: FormOutputSummitPayload;
 }
 interface DispatchPros {
     onProgressed: typeof formModalSubmitProgressed;
@@ -79,23 +78,21 @@ class Footer extends React.Component<Props> {
     }
 
     private onSubmit = () => {
-        const { formOutputSummitReq, isSubmit, answers, formId } = this.props;
+        const { formOutputSummitReq, isSubmit, ouput } = this.props;
         if (isSubmit) {
-            formOutputSummitReq({ formId: formId, ansers: answers });
+            formOutputSummitReq(ouput);
         }
-        // tslint:disable-next-line:no-console
-        console.log('');
     }
 }
 
 const mapStateProps = (state: RootState) => ({
-    isSubmit: IsSubmitStep(state),
+    isSubmit: isSubmitStep(state),
     formType: getCurFormType(state),
     error: selectModalError(state),
-    isFirst: IsFirstStep(state),
+    isFirst: isFirstStep(state),
     itemId: getFormItemId(state),
     formId: getFormId(state),
-    answers: getAnswers(state),
+    ouput: makeAnswerToApi(state),
 });
 
 const mapDispatchProps = (dispatch: Dispatch<FormModalAction | FormAction>) => ({

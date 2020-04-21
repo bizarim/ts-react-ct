@@ -1,8 +1,7 @@
 
 [todo list]
-1, init form state
-3. 제출 페이지
-4. 제출 연동
+
+1. 요청 보내기 완료 페이지
 
 5. css global var 정의
 6. components unit text
