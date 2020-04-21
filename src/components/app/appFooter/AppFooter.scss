@@ -1,4 +1,10 @@
-.app-footer {
-    border-top: 0.0625rem solid #e1e1e1;
+.footer-container {
+    border-top: 0.0625rem solid var(--main-border-color);
     padding: 1.3125rem 0 1.875rem;
+
+    .footer-container-row {
+        display: block;
+        max-width: 60.625rem;
+        padding: 0;
+    }
 }

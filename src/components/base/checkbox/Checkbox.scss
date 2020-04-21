@@ -26,7 +26,7 @@
                     display: block;
                     width: 20px;
                     height: 20px;
-                    border: 1px solid #ccc;
+                    border: 1px solid var(--sub-1-border-color);
                     border-radius: 4px;
                     margin: 0;
                 }
@@ -40,8 +40,8 @@
                 &::before {
                     content: "\2713";
                     font-size: 1rem;
-                    color: #fff;
-                    background: #00c7ae;
+                    color: var(--sub-bg-color);
+                    background: var(--main-bg-color);
                     text-align: center;
                 }
             }

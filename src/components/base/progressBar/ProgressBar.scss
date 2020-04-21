@@ -10,14 +10,14 @@
 
         .progress-bar {
             height: 100%;
-            background-color: #00c7ae;
+            background-color: var(--main-bg-color);
         }
     }
 
     .progress-desc p {
         padding: .5rem 0;
         text-align: center;
-        color: #00c7ae;
+        color: var(--main-bg-color);
         font-size: 12px;
         font-weight: 500;
         margin: 0;

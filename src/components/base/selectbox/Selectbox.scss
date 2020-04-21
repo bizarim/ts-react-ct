@@ -16,7 +16,7 @@
             width: 100%;
             position: relative;
             display: inline-block;
-            border: 1px solid #ccc;
+            border: 1px solid var(--sub-1-border-color);
             border-radius: 0;
             text-align: left;
 
@@ -26,9 +26,9 @@
                 background-color: transparent;
 
                 option {
-                    color: #000;
+                    color: var(--black);
                     &:disabled {
-                        color: #e1e1e1;
+                        color: var(--main-border-color);
                     }
                 }
             }
@@ -60,7 +60,7 @@
 .no-value {
     .select-wrapper {
         select {
-            color: #ccc;
+            color: var(--sub-1-border-color);
         }
     }
 }

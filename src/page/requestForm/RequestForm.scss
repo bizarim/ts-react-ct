@@ -24,7 +24,7 @@
                 font-size: 2.5rem;
                 line-height: 3.75rem;
                 letter-spacing: -0.04375rem;
-                color: #fff;
+                color: var(--sub-bg-color);
                 margin: 0;
                 font-weight: 500;
             }
@@ -55,12 +55,10 @@
 
         .request-form {
             position: relative;
-            background-color: #fff;
+            background-color: var(--sub-bg-color);
             padding: 40px;
-            border: 1px solid #e1e1e1;
+            border: 1px solid var(--main-border-color);
             border-radius: 5px;
-
-
 
             .contents-body {
                 padding-bottom: 40px;
@@ -77,7 +75,7 @@
                     font-size: 14px;
 
                     i {
-                        color: #ff3131;
+                        color: var(--red);
                     }
 
                     .fa {
@@ -94,8 +92,6 @@
                             content: "\22C7";
                         }
                     }
-
-
                 }
 
                 .btn-wrapper {
@@ -112,27 +108,27 @@
                     }
 
                     .neg-btn-primary {
-                        background-color: #fff;
-                        color: #00c7ae;
+                        background-color: var(--sub-bg-color);
+                        color: var(--main-bg-color);
                         &:hover {
-                            background: darken(#fff, 2%); // 색상 10% 밝게
+                            background: darken(#fff, 2%);
                         }
 
                         &:active {
-                            background: darken(#fff, 10%); // 색상 10% 밝게
+                            background: darken(#fff, 10%);
                         }
                     }
 
                     .btn-primary {
-                        background-color: #00c7ae;
-                        color: #fff;
+                        background-color: var(--main-bg-color);
+                        color: var(--sub-bg-color);
 
                         &:hover {
-                            background: lighten(#00c7ae, 2%); // 색상 10% 밝게
+                            background: lighten(#00c7ae, 2%);
                         }
 
                         &:active {
-                            background: darken(#00c7ae, 2%); // 색상 10% 밝게
+                            background: darken(#00c7ae, 2%);
                         }
                     }
                 }

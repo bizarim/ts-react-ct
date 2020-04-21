@@ -1,7 +1,11 @@
 .app-header {
     margin: 0;
     height: 72px;
-    border-bottom: 1px solid #e1e1e1;
-    background-color: #fff;
+    border-bottom: 1px solid var(--main-border-color);
+    background-color: var(--sub-bg-color);
     padding: 1rem 1.5rem;
+
+    img {
+        height: 36px;
+    }
 }
