@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputFormItemOption, OutputFormItem } from '../../../modules/types';
+import { OutputFormItem, InputFormItemOption } from '../../../store/modules/form/types';
 
 export interface SelectboxProps {
     answer: Map<number, OutputFormItem> | undefined;

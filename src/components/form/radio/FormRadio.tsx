@@ -1,12 +1,12 @@
 import React from 'react';
-import { InputFormItem, OutputFormItem } from '../../../modules/types';
-import { FormModalAnswerPayload } from '../../../modules/modal/actions';
 import { Radio } from '../../base/radio/Radio';
+import { InputFormItem, OutputFormItem } from '../../../store/modules/form/types';
+import { FormViewAnswerPayload } from '../../../store/modules/form/view/actions';
 
 interface Props {
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
-    onChecked(payload: FormModalAnswerPayload): any;
+    onChecked(payload: FormViewAnswerPayload): any;
 }
 interface State {
     selectedId: string;
@@ -22,7 +22,7 @@ export class FormRadio extends React.Component<Props, State> {
         const list = answer ? answer : new Map<number, OutputFormItem>();
 
         return (
-            <div className="modal-form-list" >
+            <div className="form-list" >
                 <div className="request-formset">
                     <h3 >{formData.title}</h3>
                     <ul>

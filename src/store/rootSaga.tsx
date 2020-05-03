@@ -1,5 +1,5 @@
 import { all, call } from 'redux-saga/effects';
-import { rootFormSaga } from './form';
+import { rootFormSaga } from './modules/form/api/sagas';
 
 
 // [ Redux 만들기 ] step 5: saga 등록

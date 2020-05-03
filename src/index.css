@@ -186,120 +186,120 @@
   .form-control:focus {
     outline: 0; }
 
-.modal-form-list {
+.form-list {
   width: 100%; }
-  .modal-form-list .request-formset {
+  .form-list .request-formset {
     padding: 0;
     margin: 0; }
-    .modal-form-list .request-formset * {
+    .form-list .request-formset * {
       outline: none;
       font-size: 1rem; }
-    .modal-form-list .request-formset h3 {
+    .form-list .request-formset h3 {
       font-size: 1.5rem;
       margin-bottom: 2.5rem;
       line-height: 2.5rem;
       font-weight: 500; }
-    .modal-form-list .request-formset ul {
+    .form-list .request-formset ul {
       border: 1px solid var(--sub-2-border-color);
       border-radius: 4px;
       overflow: hidden;
       padding: 0;
       margin: 0; }
-      .modal-form-list .request-formset ul li {
+      .form-list .request-formset ul li {
         list-style: none; }
-    .modal-form-list .request-formset .item-list {
+    .form-list .request-formset .item-list {
       padding: 15px 25px;
       border-bottom: 1px solid var(--sub-2-border-color);
       list-style: none;
       background: var(--sub-bg-color); }
-      .modal-form-list .request-formset .item-list:last-child {
+      .form-list .request-formset .item-list:last-child {
         border-bottom: none; }
 
-.modal-form-list {
+.form-list {
   width: 100%; }
-  .modal-form-list .request-formset {
+  .form-list .request-formset {
     padding: 0;
     margin: 0; }
-    .modal-form-list .request-formset * {
+    .form-list .request-formset * {
       outline: none;
       font-size: 1rem; }
-    .modal-form-list .request-formset h3 {
+    .form-list .request-formset h3 {
       font-size: 1.5rem;
       margin-bottom: 2.5rem;
       line-height: 2.5rem;
       font-weight: 500; }
-    .modal-form-list .request-formset ul {
+    .form-list .request-formset ul {
       border: 1px solid var(--sub-2-border-color);
       border-radius: 4px;
       overflow: hidden;
       padding: 0;
       margin: 0; }
-      .modal-form-list .request-formset ul li {
+      .form-list .request-formset ul li {
         list-style: none; }
-    .modal-form-list .request-formset .item-list {
+    .form-list .request-formset .item-list {
       padding: 15px 25px;
       border-bottom: 1px solid var(--sub-2-border-color);
       list-style: none;
       background: var(--sub-bg-color); }
-      .modal-form-list .request-formset .item-list:last-child {
+      .form-list .request-formset .item-list:last-child {
         border-bottom: none; }
 
-.modal-form-list {
+.form-list {
   width: 100%; }
-  .modal-form-list .request-formset {
+  .form-list .request-formset {
     padding: 0;
     margin: 0; }
-    .modal-form-list .request-formset * {
+    .form-list .request-formset * {
       outline: none;
       font-size: 1rem; }
-    .modal-form-list .request-formset h3 {
+    .form-list .request-formset h3 {
       font-size: 1.5rem;
       margin-bottom: 2.5rem;
       line-height: 2.5rem;
       font-weight: 500; }
-    .modal-form-list .request-formset ul {
+    .form-list .request-formset ul {
       border: 1px solid var(--sub-2-border-color);
       border-radius: 4px;
       overflow: hidden;
       padding: 0;
       margin: 0; }
-      .modal-form-list .request-formset ul li {
+      .form-list .request-formset ul li {
         list-style: none; }
-    .modal-form-list .request-formset .item-list {
+    .form-list .request-formset .item-list {
       padding: 15px 25px;
       border-bottom: 1px solid var(--sub-2-border-color);
       list-style: none;
       background: var(--sub-bg-color); }
-      .modal-form-list .request-formset .item-list:last-child {
+      .form-list .request-formset .item-list:last-child {
         border-bottom: none; }
 
-.modal-form-list {
+.form-list {
   width: 100%; }
-  .modal-form-list .request-formset {
+  .form-list .request-formset {
     padding: 0;
     margin: 0; }
-    .modal-form-list .request-formset * {
+    .form-list .request-formset * {
       outline: none;
       font-size: 1rem; }
-    .modal-form-list .request-formset h3 {
+    .form-list .request-formset h3 {
       font-size: 1.5rem;
       margin-bottom: 2.5rem;
       line-height: 2.5rem;
       font-weight: 500; }
-    .modal-form-list .request-formset ul {
+    .form-list .request-formset ul {
       border: 1px solid var(--sub-2-border-color);
       border-radius: 4px;
       overflow: hidden;
       padding: 0;
       margin: 0; }
-      .modal-form-list .request-formset ul li {
+      .form-list .request-formset ul li {
         list-style: none; }
-    .modal-form-list .request-formset .item-list {
+    .form-list .request-formset .item-list {
       padding: 15px 25px;
       border-bottom: 1px solid var(--sub-2-border-color);
       list-style: none;
       background: var(--sub-bg-color); }
-      .modal-form-list .request-formset .item-list:last-child {
+      .form-list .request-formset .item-list:last-child {
         border-bottom: none; }
 
 .send-request {

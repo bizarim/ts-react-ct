@@ -2,7 +2,7 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import * as React from 'react';
 import { SelectboxProps, Selectbox } from './Selectbox';
-import { OutputFormItem } from '../../../modules/types';
+import { OutputFormItem } from '../../../store/modules/form/types';
 
 
 configure({ adapter: new Adapter() });

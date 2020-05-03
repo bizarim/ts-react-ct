@@ -1,14 +1,14 @@
-import { RootState } from '../rootReducer';
-import { FormModalState } from './reducer';
-import { eFormType } from '../../constants';
-import { selectInputForm } from '../form';
+import { RootState } from '../../../rootReducer';
+import { FormViewState } from './reducer';
 import { OutputFormItem, FormOutputSummitPayload } from '../types';
-import { FormModalError, ItemId, FormId, OptionId } from './types';
+import { FormViewError, ItemId, FormId, OptionId } from './types';
+import { eFormType } from '../../../../constants';
+import { selectInputForm } from '../api/selectors';
 
-export const selectAnswers = (state: RootState): FormModalState['answers'] => state.formModal.answers;
-export const selectCurStep = (state: RootState): FormModalState['curStep'] => state.formModal.curStep;
-export const selectMaxStep = (state: RootState): number => state.formInput.data.items.length;
-export const isCompleted = (state: RootState): boolean => state.formModal.isCompleted;
+export const selectAnswers = (state: RootState): FormViewState['answers'] => state.formView.answers;
+export const selectCurStep = (state: RootState): FormViewState['curStep'] => state.formView.curStep;
+export const selectMaxStep = (state: RootState): number => state.formApi.data.items.length;
+export const isCompleted = (state: RootState): boolean => state.formView.isCompleted;
 export const isFirstStep = (state: RootState): boolean => {
     const cur = selectCurStep(state);
     if (cur <= 0) return true;
@@ -51,13 +51,13 @@ export const getFormId = (state: RootState): FormId => {
     return data.formId;
 };
 
-export const selectModalError = (state: RootState): FormModalError | undefined => {
+export const selectViewError = (state: RootState): FormViewError | undefined => {
     const cur = selectCurStep(state);
-    return state.formModal.errors.get(cur);
+    return state.formView.errors.get(cur);
 };
 
-export const getAnswer = (state: RootState): Map<OptionId, OutputFormItem> | undefined => state.formModal.answers.get(getCurFormType(state));
-export const getAnswers = (state: RootState): Map<ItemId, Map<OptionId, OutputFormItem>> => state.formModal.answers;
+export const getAnswer = (state: RootState): Map<OptionId, OutputFormItem> | undefined => state.formView.answers.get(getCurFormType(state));
+export const getAnswers = (state: RootState): Map<ItemId, Map<OptionId, OutputFormItem>> => state.formView.answers;
 
 
 export const makeAnswerToApi = (state: RootState): FormOutputSummitPayload => {

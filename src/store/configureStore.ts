@@ -5,8 +5,8 @@ import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'react-router-redux';
 
 // [ Redux 만들기 ] step 6: store에 rootReducer, rootSaga 등록
-import { rootReducer } from '../modules/rootReducer';
-import { rootSaga } from '../modules/rootSaga';
+import { rootReducer } from './rootReducer';
+import { rootSaga } from './rootSaga';
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();

@@ -2,12 +2,14 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { InputForm } from '../../modules/types';
-import { formInputGetListReq, selectInputForm, FormAction } from '../../modules/form';
 import { FormTitle } from '../../components';
 import { FormContents, FormComplete } from '../../containers';
-import { RootState } from '../../modules/rootReducer';
-import { isCompleted } from '../../modules/modal';
+import { InputForm } from '../../store/modules/form/types';
+import { formInputGetListReq, FormApiAction } from '../../store/modules/form/api/actions';
+import { RootState } from '../../store/rootReducer';
+import { selectInputForm } from '../../store/modules/form/api/selectors';
+import { isCompleted } from '../../store/modules/form/view/selectors';
+
 
 interface ReduxProps {
     formDatas: InputForm;
@@ -39,7 +41,7 @@ const mapStateProps = (state: RootState): ReduxProps => ({
     isCompleted: isCompleted(state),
 });
 
-const mapDispatchProps = (dispatch: Dispatch<FormAction>) => ({
+const mapDispatchProps = (dispatch: Dispatch<FormApiAction>) => ({
     getInputForm: () => dispatch(formInputGetListReq()),
 });
 

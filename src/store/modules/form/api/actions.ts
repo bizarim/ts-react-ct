@@ -32,7 +32,7 @@ export interface FormInputGetListRes {
     type: typeof FORM_INPUT_GET_LIST_RES;
     payload: FormInputGetListPayload;
 }
-export type FormAction = FormOutputSummitErr
+export type FormApiAction = FormOutputSummitErr
     | FormOutputSummitReq
     | FormOutputSummitRes
     | FormInputGetListErr

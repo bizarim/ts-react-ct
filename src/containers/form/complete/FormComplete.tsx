@@ -1,13 +1,15 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { RootState } from '../../../modules/rootReducer';
-import { FormModalAction, formModalInitailize, getFormId } from '../../../modules/modal';
-import { FormId } from '../../../modules/modal/types';
+import { FormId } from '../../../store/modules/form/types';
+import { formViewInitailize, FormViewAction } from '../../../store/modules/form/view/actions';
+import { RootState } from '../../../store/rootReducer';
+import { getFormId } from '../../../store/modules/form/view/selectors';
+
 
 interface Props {
     formId: FormId;
-    formModalInitailize: typeof formModalInitailize;
+    formViewInitailize: typeof formViewInitailize;
 }
 interface State {
 
@@ -34,8 +36,8 @@ class Complete extends React.Component<Props, State> {
         );
     }
     private onComplete = () => {
-        const { formId , formModalInitailize } = this.props;
-        formModalInitailize({ formId: formId});
+        const { formId , formViewInitailize } = this.props;
+        formViewInitailize({ formId: formId});
     }
 }
 
@@ -44,8 +46,8 @@ const mapStateProps = (state: RootState) => ({
     formId: getFormId(state),
 });
 
-const mapDispatchProps = (dispatch: Dispatch<FormModalAction>) => ({
-    formModalInitailize: (payload: { formId: FormId }) => dispatch(formModalInitailize(payload)),
+const mapDispatchProps = (dispatch: Dispatch<FormViewAction>) => ({
+    formViewInitailize: (payload: { formId: FormId }) => dispatch(formViewInitailize(payload)),
 });
 
 export const FormComplete = connect(mapStateProps, mapDispatchProps)(Complete);

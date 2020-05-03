@@ -1,6 +1,6 @@
-import { IPayload } from '../../api';
-import { eFormType } from '../../constants';
-import { FormId, ItemId, OptionId } from '../modal/types';
+import { FormId, ItemId } from '../view/types';
+import { eFormType } from '../../../../constants';
+import { IPayload } from '../../../../api';
 
 export interface CommonErrorPayload {
     code: string;

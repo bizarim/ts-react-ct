@@ -1,12 +1,13 @@
 import React from 'react';
 import { Selectbox } from '../../base/selectbox/Selectbox';
-import { InputFormItem, OutputFormItem } from '../../../modules/types';
-import { FormModalAnswerPayload } from '../../../modules/modal/actions';
+import { InputFormItem, OutputFormItem } from '../../../store/modules/form/types';
+import { FormViewAnswerPayload } from '../../../store/modules/form/view/actions';
+
 
 interface Props {
     formData: InputFormItem;
     answer: Map<number, OutputFormItem> | undefined;
-    onSelectboxSelected(payload: FormModalAnswerPayload): any;
+    onSelectboxSelected(payload: FormViewAnswerPayload): any;
 }
 interface State {
 
@@ -18,7 +19,7 @@ export class FormSelectbox extends React.Component<Props, State> {
     public render() {
         const { formData, answer } = this.props;
         return (
-            <div className="modal-form-list" >
+            <div className="form-list" >
                 <div className="request-formset">
                     <h3 >{formData.title}</h3>
                     <div className="form-group">

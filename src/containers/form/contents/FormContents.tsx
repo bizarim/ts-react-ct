@@ -2,11 +2,12 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { eFormType } from '../../../constants';
-import { RootState } from '../../../modules/rootReducer';
-import { FormInputGetListPayload, OutputFormItem } from '../../../modules/types';
-import { ModalSubmit, FormCheckbox, FormRadio, FormSelectbox, FormTextInput, ProgressBar } from '../../../components';
-import { formModalCheckboxChecked, formModalRadioChecked, formModalTextInput, getProgressStep, selectCurStep, selectMaxStep, isSubmitStep, getAnswer, FormModalAction, FormModalAnswerPayload, formModalSelectboxSelected } from '../../../modules/modal';
+import { ViewSubmit, FormCheckbox, FormRadio, FormSelectbox, FormTextInput, ProgressBar } from '../../../components';
 import { FormContentsFooter } from '../../';
+import { FormInputGetListPayload, OutputFormItem } from '../../../store/modules/form/types';
+import { formViewCheckboxChecked, formViewRadioChecked, formViewTextInput, formViewSelectboxSelected, FormViewAction, FormViewAnswerPayload } from '../../../store/modules/form/view/actions';
+import { RootState } from '../../../store/rootReducer';
+import { getProgressStep, selectCurStep, selectMaxStep, isSubmitStep, getAnswer } from '../../../store/modules/form/view/selectors';
 
 interface FormProps {
     formDatas: FormInputGetListPayload;
@@ -19,10 +20,10 @@ interface ReduxProps {
     isSubmit: boolean;
 }
 interface DispatchProps {
-    onCheckboxChecked: typeof formModalCheckboxChecked;
-    onRadoChecked: typeof formModalRadioChecked;
-    onTextInput: typeof formModalTextInput;
-    onSelectboxSelected: typeof formModalSelectboxSelected;
+    onCheckboxChecked: typeof formViewCheckboxChecked;
+    onRadoChecked: typeof formViewRadioChecked;
+    onTextInput: typeof formViewTextInput;
+    onSelectboxSelected: typeof formViewSelectboxSelected;
 }
 type Props = DispatchProps & FormProps & ReduxProps;
 
@@ -36,7 +37,7 @@ class Contents extends React.Component<Props> {
                     <div className="request-form container-fluid">
                         <ProgressBar value={progressStep} />
                         {isSubmit
-                            ? <ModalSubmit answer={answer} />
+                            ? <ViewSubmit answer={answer} />
                             : this.renderContentsBody(curStep, formDatas)}
                         <FormContentsFooter />
                     </div>
@@ -74,11 +75,11 @@ const mapStateProps = (state: RootState) => ({
     answer: getAnswer(state),
 });
 
-const mapDispatchProps = (dispatch: Dispatch<FormModalAction>) => ({
-    onCheckboxChecked: (payload: FormModalAnswerPayload) => dispatch(formModalCheckboxChecked(payload)),
-    onRadoChecked: (payload: FormModalAnswerPayload) => dispatch(formModalRadioChecked(payload)),
-    onTextInput: (payload: FormModalAnswerPayload) => dispatch(formModalTextInput(payload)),
-    onSelectboxSelected: (payload: FormModalAnswerPayload) => dispatch(formModalSelectboxSelected(payload)),
+const mapDispatchProps = (dispatch: Dispatch<FormViewAction>) => ({
+    onCheckboxChecked: (payload: FormViewAnswerPayload) => dispatch(formViewCheckboxChecked(payload)),
+    onRadoChecked: (payload: FormViewAnswerPayload) => dispatch(formViewRadioChecked(payload)),
+    onTextInput: (payload: FormViewAnswerPayload) => dispatch(formViewTextInput(payload)),
+    onSelectboxSelected: (payload: FormViewAnswerPayload) => dispatch(formViewSelectboxSelected(payload)),
 });
 
 export const FormContents = connect(mapStateProps, mapDispatchProps)(Contents);

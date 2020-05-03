@@ -1,10 +1,8 @@
-import { eFormType } from '../../constants';
-
 export type FormId = number;
 export type ItemId = number;
 export type OptionId = number;
 
-export interface FormModalError {
+export interface FormViewError {
     isError: boolean;
     itemId: ItemId;
 }

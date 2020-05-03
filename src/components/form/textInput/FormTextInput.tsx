@@ -1,13 +1,13 @@
 import React from 'react';
 import { TextInput } from '../..';
-import { InputFormItem, OutputFormItem } from '../../../modules/types';
-import { FormModalAnswerPayload } from '../../../modules/modal/actions';
-import { ItemId } from '../../../modules/modal/types';
+import { InputFormItem, ItemId, OutputFormItem } from '../../../store/modules/form/types';
+import { FormViewAnswerPayload } from '../../../store/modules/form/view/actions';
+
 
 interface Props {
     formData: InputFormItem;
     answer: Map<ItemId, OutputFormItem> | undefined;
-    onTextInput(payload: FormModalAnswerPayload): any;
+    onTextInput(payload: FormViewAnswerPayload): any;
 }
 interface State {
 
@@ -24,7 +24,7 @@ export class FormTextInput extends React.Component<Props, State> {
         const id = 0;
         const text = list.get(id)?.answer;
         return (
-            <div className="modal-form-list" >
+            <div className="form-list" >
                 <div className="request-formset">
                     <h3 >{formData.title}</h3>
                     <TextInput

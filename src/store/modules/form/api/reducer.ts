@@ -1,5 +1,5 @@
 import { CommonErrorPayload, InputForm } from './types';
-import { FormAction } from './actions';
+import { FormApiAction } from './actions';
 import {
     FORM_OUTPUT_SUMMIT_ERR,
     FORM_OUTPUT_SUMMIT_REQ,
@@ -9,12 +9,13 @@ import {
     FORM_INPUT_GET_LIST_RES,
 } from './constants';
 
-export interface FormInputState {
+export interface FormApiState {
     data: InputForm;
     error?: CommonErrorPayload;
 }
 
-export const initialState: FormInputState = {
+
+export const initialState: FormApiState = {
     data: {
         formId: 0,
         title: '',
@@ -22,7 +23,7 @@ export const initialState: FormInputState = {
     },
 };
 
-export const formInputReducer = (state = initialState, action: FormAction): FormInputState => {
+export const formApiReducer = (state = initialState, action: FormApiAction): FormApiState => {
 
     switch (action.type) {
         case FORM_OUTPUT_SUMMIT_ERR:
