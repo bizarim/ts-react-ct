@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { eFormType } from '../../../constants';
 import { RootState } from '../../../modules/rootReducer';
 import { FormInputGetListPayload, OutputFormItem } from '../../../modules/types';
-import { ModalSubmit, ModalCheckbox, ModalRadio, ModalSelectbox, ModalTextInput, ProgressBar } from '../../../components';
+import { ModalSubmit, FormCheckbox, FormRadio, FormSelectbox, FormTextInput, ProgressBar } from '../../../components';
 import { formModalCheckboxChecked, formModalRadioChecked, formModalTextInput, getProgressStep, selectCurStep, selectMaxStep, isSubmitStep, getAnswer, FormModalAction, FormModalAnswerPayload, formModalSelectboxSelected } from '../../../modules/modal';
 import { FormContentsFooter } from '../../';
 
@@ -54,13 +54,13 @@ class Contents extends React.Component<Props> {
         return (
             <div className="contents-body" >
                 {formType === eFormType.Checkbox
-                    && <ModalCheckbox formData={formData} answer={answer} onChecked={onCheckboxChecked} />}
+                    && <FormCheckbox formData={formData} answer={answer} onChecked={onCheckboxChecked} />}
                 {formType === eFormType.Radio
-                    && <ModalRadio formData={formData} answer={answer} onChecked={onRadoChecked} />}
+                    && <FormRadio formData={formData} answer={answer} onChecked={onRadoChecked} />}
                 {formType === eFormType.Selectbox
-                    && <ModalSelectbox formData={formData} answer={answer} onSelectboxSelected={onSelectboxSelected} />}
+                    && <FormSelectbox formData={formData} answer={answer} onSelectboxSelected={onSelectboxSelected} />}
                 {formType === eFormType.TextInput
-                    && <ModalTextInput formData={formData} answer={answer} onTextInput={onTextInput} />}
+                    && <FormTextInput formData={formData} answer={answer} onTextInput={onTextInput} />}
             </div >
         );
     }

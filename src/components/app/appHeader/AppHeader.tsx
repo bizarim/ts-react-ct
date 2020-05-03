@@ -13,7 +13,7 @@ export class AppHeader extends React.Component<Props, State> {
     public render() {
         return (
             <div className="app-header">
-                <img src="https://dmmj3ljielax6.cloudfront.net/static/img/home/index_soomgo_logo.svg" alt="숨고, 숨은고수"></img>
+                <img src={require('../../../assets/logo.svg')} alt="logo"></img>
             </div>
         );
     }
