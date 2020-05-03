@@ -302,114 +302,97 @@
       .form-list .request-formset .item-list:last-child {
         border-bottom: none; }
 
+.form-title {
+  background-image: url(assets/bg.png);
+  position: relative;
+  background-size: cover;
+  background-position: 50%;
+  padding: 3.75rem 0 6rem;
+  margin-bottom: 0; }
+  .form-title .title-wrapper {
+    position: relative;
+    width: 970px;
+    margin: 0 auto;
+    z-index: 2; }
+    .form-title .title-wrapper h1 {
+      font-size: 2.5rem;
+      line-height: 3.75rem;
+      letter-spacing: -0.04375rem;
+      color: var(--sub-bg-color);
+      margin: 0;
+      font-weight: 500; }
+  .form-title .dimmed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0; }
+
+.form-contents {
+  width: 970px;
+  margin: 0 auto -2.5rem; }
+  .form-contents div[data-name="request-form-wrap"] {
+    min-height: 300px;
+    -webkit-transform: translateY(-6.25rem);
+    transform: translateY(-6.25rem);
+    padding-right: 2.5rem;
+    z-index: 2; }
+  .form-contents .request-form {
+    position: relative;
+    background-color: var(--sub-bg-color);
+    padding: 40px;
+    border: 1px solid var(--main-border-color);
+    border-radius: 5px; }
+    .form-contents .request-form .contents-body {
+      padding-bottom: 40px; }
+    .form-contents .request-form .contents-footer {
+      overflow: hidden; }
+      .form-contents .request-form .contents-footer small.form-error-msg {
+        display: block;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 10px;
+        font-size: 14px; }
+        .form-contents .request-form .contents-footer small.form-error-msg i {
+          color: var(--red); }
+        .form-contents .request-form .contents-footer small.form-error-msg .fa {
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale; }
+        .form-contents .request-form .contents-footer small.form-error-msg .notice:before {
+          content: "\22C7"; }
+      .form-contents .request-form .contents-footer .btn-wrapper {
+        width: 100%;
+        text-align: right; }
+        .form-contents .request-form .contents-footer .btn-wrapper .btn {
+          cursor: pointer;
+          outline: 0;
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
+          -webkit-transition: opacity 0.2s ease-in-out;
+          transition: opacity 0.2s ease-in-out; }
+        .form-contents .request-form .contents-footer .btn-wrapper .neg-btn-primary {
+          background-color: var(--sub-bg-color);
+          color: var(--main-bg-color); }
+          .form-contents .request-form .contents-footer .btn-wrapper .neg-btn-primary:hover {
+            background: #fafafa; }
+          .form-contents .request-form .contents-footer .btn-wrapper .neg-btn-primary:active {
+            background: #e6e6e6; }
+        .form-contents .request-form .contents-footer .btn-wrapper .btn-primary {
+          background-color: var(--main-bg-color);
+          color: var(--sub-bg-color); }
+          .form-contents .request-form .contents-footer .btn-wrapper .btn-primary:hover {
+            background: #00d1b7; }
+          .form-contents .request-form .contents-footer .btn-wrapper .btn-primary:active {
+            background: #00bda5; }
+
 .send-request {
   padding-bottom: 3.125rem; }
-  .send-request section {
-    padding: 2.5rem 0; }
-  .send-request .form-title {
-    background-image: url(assets/bg.png);
-    position: relative;
-    background-size: cover;
-    background-position: 50%;
-    padding: 3.75rem 0 6rem;
-    margin-bottom: 0; }
-    .send-request .form-title .title-wrapper {
-      position: relative;
-      width: 970px;
-      margin: 0 auto;
-      z-index: 2; }
-      .send-request .form-title .title-wrapper h1 {
-        font-size: 2.5rem;
-        line-height: 3.75rem;
-        letter-spacing: -0.04375rem;
-        color: var(--sub-bg-color);
-        margin: 0;
-        font-weight: 500; }
-    .send-request .form-title .dimmed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 0; }
-  .send-request .form-contents {
-    width: 970px;
-    margin: 0 auto -2.5rem; }
-    .send-request .form-contents div[data-name="request-form-wrap"] {
-      min-height: 300px;
-      -webkit-transform: translateY(-6.25rem);
-      transform: translateY(-6.25rem);
-      padding-right: 2.5rem;
-      z-index: 2; }
-    .send-request .form-contents .request-form {
-      position: relative;
-      background-color: var(--sub-bg-color);
-      padding: 40px;
-      border: 1px solid var(--main-border-color);
-      border-radius: 5px; }
-      .send-request .form-contents .request-form .contents-body {
-        padding-bottom: 40px; }
-      .send-request .form-contents .request-form .contents-footer {
-        overflow: hidden; }
-        .send-request .form-contents .request-form .contents-footer small.form-error-msg {
-          display: block;
-          width: 100%;
-          text-align: right;
-          margin-bottom: 10px;
-          font-size: 14px; }
-          .send-request .form-contents .request-form .contents-footer small.form-error-msg i {
-            color: var(--red); }
-          .send-request .form-contents .request-form .contents-footer small.form-error-msg .fa {
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: inherit;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale; }
-          .send-request .form-contents .request-form .contents-footer small.form-error-msg .notice:before {
-            content: "\22C7"; }
-        .send-request .form-contents .request-form .contents-footer .btn-wrapper {
-          width: 100%;
-          text-align: right; }
-          .send-request .form-contents .request-form .contents-footer .btn-wrapper .btn {
-            cursor: pointer;
-            outline: 0;
-            padding-left: 2.5rem;
-            padding-right: 2.5rem;
-            -webkit-transition: opacity 0.2s ease-in-out;
-            transition: opacity 0.2s ease-in-out; }
-          .send-request .form-contents .request-form .contents-footer .btn-wrapper .neg-btn-primary {
-            background-color: var(--sub-bg-color);
-            color: var(--main-bg-color); }
-            .send-request .form-contents .request-form .contents-footer .btn-wrapper .neg-btn-primary:hover {
-              background: #fafafa; }
-            .send-request .form-contents .request-form .contents-footer .btn-wrapper .neg-btn-primary:active {
-              background: #e6e6e6; }
-          .send-request .form-contents .request-form .contents-footer .btn-wrapper .btn-primary {
-            background-color: var(--main-bg-color);
-            color: var(--sub-bg-color); }
-            .send-request .form-contents .request-form .contents-footer .btn-wrapper .btn-primary:hover {
-              background: #00d1b7; }
-            .send-request .form-contents .request-form .contents-footer .btn-wrapper .btn-primary:active {
-              background: #00bda5; }
-
-.container-fluid,
-.container-lg,
-.container-md,
-.container-sm,
-.container-xl {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto; }
-
-.col-lg-8 {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 66.66667%;
-  flex: 0 0 66.66667%;
-  max-width: 66.66667%; }
 
 :root {
   --main-border-color: #e1e1e1;
@@ -447,6 +430,23 @@
   --font-family-sans-serif: "Noto Sans KR", "Malgun Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+
+.col-lg-8 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66.66667%;
+  flex: 0 0 66.66667%;
+  max-width: 66.66667%; }
 
 * {
   box-sizing: border-box;
